@@ -1,0 +1,133 @@
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgb(255, 228, 195);
+}
+
+header {
+    background-color: rgb(231, 211, 111);
+    display: flex;
+    height: 20%;
+}
+
+aside{
+    
+    display: flex;
+    height: 80%;
+    align-items: center;
+    background-color:rgb(242, 219, 171)
+}
+
+main{
+    height:67.8%;
+    text-align: justify;
+    padding-top: 2%;
+    padding-left: 20%;
+    padding-right: 35%;
+}
+
+footer {
+    height: 25%;
+    background-color: rgb(222, 196, 140);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50%;
+    display: flex;
+    justify-content:center;
+}
+
+.aside-left nav {
+    width: 100%;
+}
+
+.aside-left nav a {
+    font-family: 'Inclusive Sans', 'Times New Roman', Times, serif;
+    display: block;
+    color: rgb(163, 136, 90);
+
+    padding-bottom: 5%;
+    padding-top: 5%;
+    padding-left: 14%;
+    font-size: 200%;
+    text-align: left;
+    text-decoration: none;
+
+    height: auto;
+    line-height: 60px;
+}
+
+.aside-left nav a:hover {
+    background-color: #f9edc9;
+    color: rgb(211, 191, 126);
+}
+
+.aside-left nav a:active {
+    color: rgb(245, 179, 73);
+}
+
+.aside-left {
+    float: left;
+
+    height: 80%;
+    width: 15%;
+}
+
+.aside-right {
+    float: right;
+    height: 45%;
+    width: 30%;
+}
+
+.aside-right img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15%;
+    width: 250px;
+}
+
+.map img:hover {
+    background-color: #f9edc9;
+    color: rgb(211, 191, 126);
+}
+
+.logo {
+    color: rgb(214, 139, 54);
+    font-family: 'Ultra', 'Times New Roman', Times, serif;
+    font-size: 300%;
+    text-align: left;
+    text-decoration: none;
+
+    padding-left: 2%;
+    padding-top: 4%;
+}
+
+#main-content {
+    height: 100%;
+    overflow-y: auto;
+    text-align: left;
+    margin: 0 20px;
+}
+
+#main-content .map {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#main-content table {
+    padding: 0 10px 10px;
+    width: 100%;
+    height: auto;
+}
+
+#main-content img {
+    width: 420px;
+    display: flex;
+    justify-content: center;
+}
+
+#main-content table img {
+    width: 100%;
+}
