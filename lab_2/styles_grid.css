@@ -6,43 +6,50 @@ html, body {
 }
 
 body {
+    display: grid;
+
+    grid-template-areas:
+      'header header header'
+      'menu main top'
+      'menu main bottom'
+      'menu footer footer';
+    
+    grid-template-columns: 15% 63.75% 21.25%;
+    grid-template-rows: 18% 34.85% 34.85% 12.3%;
+
     background-color: rgb(255, 247, 219);
     overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
 }
 
 header {
-    width: 100%;
-    height: 18%;
+    grid-area: header;
+    display: grid;
+
     background-color: rgb(255, 224, 125);
     align-items: end;
-    display: flex;
 }
 
 aside{
-    display: flex;
     background-color: rgb(255, 239, 191);
     text-align: left;
 }
 
-main{
-    width: 85%;
-    height: 82%;
-    display: flex;
-    flex-wrap: wrap;
-    text-align: justify;
+main {
+    grid-area: main;
+    padding: 2%;
 }
 
-section{
-    display: flex;
+main table {
+    height: 100%;
+}
+
+main table img {
+    width: 100%;
 }
 
 footer {
-    width: 100%;
-    height: 15%;
-    display: flex;
+    grid-area: footer;
+    display: grid;
     align-items: start;
     background-color: rgb(218, 201, 148);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -53,12 +60,11 @@ footer {
 nav {
     width: 100%;
     height: 40%;
-    display: flex;
-    flex-direction: column;
+    display: grid;
 }
 
 a {
-    display: flex;
+    display: grid;
 }
 
 p {
@@ -66,49 +72,26 @@ p {
     color: rgb(99, 90, 60);
 }
 
-li{
-    font-family: 'Inclusive Sans', 'Times New Roman', Times, serif;
-    color: rgb(99, 90, 60);
-}
-
-.content{
-    height: 85%;
-
-    flex-direction: row;
-}
-
-.main-content{
-    width: 73%;
-    height: 100%;
-    padding: 1%;
-    flex-direction: column;
-}
-
-.aside-right {
-    height: 100%;
-    width: 25%;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.aside-right-top{
-    height: 50%;
-    width: 100%;
-    align-items: center;
-    text-align: center;
-}
-
-.aside-right-bottom{
-    height: 50%;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-}
-
 .aside-left {
-    width: 15%;
-    height: 82%;
+    grid-area: menu;
+    display: grid;
 }
+
+
+.aside-right-top {
+    grid-area: top;
+    display: grid;
+    text-align: center;
+    align-items: center;
+}
+
+.aside-right-bottom {
+    grid-area: bottom;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .aside-left nav a:hover{
     background-color: rgb(255, 235, 165);
@@ -120,19 +103,19 @@ li{
 }
 
 .aside-left nav a {
-    height: 100%;
-    width: 85%;
-    align-items: center;
-    justify-content: left;
     padding-left: 15%;
+    align-items: center;
     font-family: 'Inclusive Sans', 'Times New Roman', Times, serif;
     color: rgb(112, 99, 79);
     text-decoration: none;
     font-size: 180%;
+    height: 100%;
+    width: 85%;
 }
 
 .logo {
     padding-left: 2%;
+
     color: rgb(214, 139, 54);
     font-family: 'Ultra', 'Times New Roman', Times, serif;
     font-size: 300%;
