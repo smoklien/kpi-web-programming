@@ -1,0 +1,124 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: grid;
+
+    grid-template-areas:
+      'header header header'
+      'menu main top'
+      'menu main bottom'
+      'menu footer footer';
+    
+    grid-template-columns: 15% 63.75% 21.25%;
+    grid-template-rows: 18% 34.85% 34.85% 12.3%;
+
+    background-color: rgb(255, 247, 219);
+    overflow: hidden;
+}
+
+header {
+    grid-area: header;
+    display: grid;
+
+    background-color: rgb(255, 224, 125);
+    align-items: end;
+}
+
+aside{
+    background-color: rgb(255, 239, 191);
+    text-align: left;
+}
+
+main {
+    grid-area: main;
+    padding: 2%;
+}
+
+main table {
+    height: 100%;
+}
+
+main table img {
+    width: 100%;
+}
+
+footer {
+    grid-area: footer;
+    display: grid;
+    align-items: start;
+    background-color: rgb(218, 201, 148);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 50%;
+    padding: 10px;
+}
+
+nav {
+    width: 100%;
+    height: 40%;
+    display: grid;
+}
+
+a {
+    display: grid;
+}
+
+p {
+    font-family: 'Inclusive Sans', 'Times New Roman', Times, serif;
+    color: rgb(99, 90, 60);
+}
+
+.aside-left {
+    grid-area: menu;
+    display: grid;
+}
+
+
+.aside-right-top {
+    grid-area: top;
+    display: grid;
+    text-align: center;
+    align-items: center;
+}
+
+.aside-right-bottom {
+    grid-area: bottom;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.aside-left nav a:hover{
+    background-color: rgb(255, 235, 165);
+    color: rgb(126, 116, 85)
+}
+
+.aside-left nav a:active {
+    color: rgb(255, 243, 205);
+}
+
+.aside-left nav a {
+    padding-left: 15%;
+    align-items: center;
+    font-family: 'Inclusive Sans', 'Times New Roman', Times, serif;
+    color: rgb(112, 99, 79);
+    text-decoration: none;
+    font-size: 180%;
+    height: 100%;
+    width: 85%;
+}
+
+.logo {
+    padding-left: 2%;
+
+    color: rgb(214, 139, 54);
+    font-family: 'Ultra', 'Times New Roman', Times, serif;
+    font-size: 300%;
+    text-align: left;
+    text-decoration: none;
+}
