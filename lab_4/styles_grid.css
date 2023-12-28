@@ -1,183 +1,327 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
-
-* {
-    padding: 0;
+html, body {
     margin: 0;
+    padding: 0;
 }
 
-body {
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-header {
-    position: relative;
+.frame1-container {
+    width: 100%;
     display: flex;
+    overflow: auto;
+    min-height: 100vh;
+    align-items: center;
+    flex-direction: column;
+  }
+  .frame1-frame1 {
+    gap: -101px;
+    width: 100%;
+    height: 1001px;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    flex-shrink: 0;
+    flex-direction: column;
     justify-content: space-between;
-    padding: 20px 200px;
-}
-
-header h2 {
-    color: #b4b2b2;
-}
-
-header svg {
-    height: 24px;
-    width: 24px;
-}
-
-.content {
-    position: relative;
-    min-height: 60vh;
-    background-color: #003fca;
-    display: flex;
-    flex-direction: column;
-    color: #fff;
-    padding: 75px 200px;
-}
-
-.content h2 {
-    font-weight: 400;
-    font-size: 24px;
-    opacity: 0.75;
-}
-
-.content h1 {
-    font-size: 56px;
-    padding-bottom: 40px;
-}
-
-.content .gridBox {
-    position: relative;
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
-    justify-content: center;
-    justify-items: center;
-    gap: 30px;
-}
-
-.content .gridBox .card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: space-around;
-    align-items: center;
-    width: 250px;
-    height: 320px;
-    padding: 25px;
-    background-color: #104dd4;
-}
-
-.content .gridBox .card.one {
-    order: 1;
-}
-.content .gridBox .card.two {
-    order: 2;
-}
-
-.content .gridBox .imgBox {
-    order: 3;
-}
-
-.content .gridBox .card img {
-    position: relative;
-    width: 75px;
+    background-color: rgba(230, 190, 195, 1);
+  }
+  .frame1-header {
+    width: 935px;
     height: 75px;
-    object-fit: cover;
-}
-
-.content .gridBox .card h4 {
-    color: #f3984a;
-}
-.content .gridBox a {
-    font-size: 16px;
-    color: #f3984a;
-    text-decoration: underline;
-    cursor: pointer;
-}
-.content .gridBox .imgBox {
-    position: relative;
-    height: 400px;
-    width: 400px;
-}
-.content .gridBox .imgBox img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 10;
-}
-
-footer {
-    position: relative;
     display: flex;
+    position: relative;
+    align-items: flex-start;
+    flex-shrink: 1;
+  }
+  .frame1-link {
+    display: contents;
+  }
+  .frame1-menu {
+    top: 0px;
+    right: 0px;
+    width: 25px;
+    bottom: 0px;
+    height: 20px;
+    margin: auto;
+    position: absolute;
+    text-decoration: none;
+  }
+  .frame1-logo {
+    color: rgba(97, 62, 132, 1);
+    width: 167px;
+    height: auto;
+    font-size: 24px;
+    align-self: center;
+    font-style: Regular;
     text-align: center;
-    justify-content: center;
-    align-items: center;
+    font-family: Expletus Sans;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .frame1-name {
+    color: rgba(199, 100, 177, 1);
+    height: auto;
+    font-size: 48px;
+    font-style: Bold;
+    text-align: center;
+    font-family: Encode Sans Expanded;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .frame1-main {
     width: 100%;
-    height: 20vh;
-    background-color: #444;
-    color: #fff;
-}
-
-footer p {
-    max-width: 75vw;
-}
-@media (max-width: 1400px) {
-    .content .gridBox .card.one {
-        order: 3;
-        grid-row: 2;
-    }
-    .content .gridBox .card.two {
-        order: 2;
-        grid-row: 2;
-    }
-    
-    .content .gridBox .imgBox img {
-        top: 75px;
-        left: 50px;
-    }
-}
-
-@media (max-width: 1150px) {
-    header {
-        padding: 20px 150px;
-    }
-    .content {
-        padding: 75px 150px;
-    }
-}
-@media (max-width: 950px) {
-    header {
-        padding: 20px 50px;
-    }
-    .content {
-        text-align: center;
-        align-items: center;
-        padding: 50px;
-    }
-    .content h1 {
-        font-size: 32px;
-    }
-    .content .gridBox .card.one {
-        order: 2;
-        grid-column: 1;
-    }
-    .content .gridBox .card.two {
-        order: 3;
-        grid-column: 1;
-        grid-row: auto;
-    }
-    
-    .content .gridBox .imgBox {
-        width: 300px;
-        height: 300px;
-        order: 1;
-        grid-column: 1;
-    }
-    .content .gridBox .imgBox img {
-        top: 75px;
-        left: 0px;
-    }
-}
+    height: 681px;
+    display: flex;
+    position: relative;
+    align-self: stretch;
+    flex-shrink: 1;
+    flex-direction: row;
+  }
+  .frame1-strip {
+    top: 171.33331298828125px;
+    left: 0px;
+    width: 1574px;
+    height: 224px;
+    position: absolute;
+    align-self: stretch;
+  }
+  .frame1-content {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 915px;
+    bottom: 0px;
+    height: 674.9999847412109px;
+    margin: auto;
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+  }
+  .frame1-tale-1 {
+    top: 0px;
+    left: 0px;
+    width: 287px;
+    height: 442px;
+    display: flex;
+    position: absolute;
+    box-shadow: 5px 5px 30px 0px rgba(0, 0, 0, 0.18);
+    flex-shrink: 1;
+    border-radius: var(--dl-radius-radius-radius8);
+    flex-direction: row;
+    background-color: rgba(249, 242, 241, 1);
+  }
+  .frame1-image1 {
+    top: 30px;
+    left: 37px;
+    width: 214px;
+    height: 167px;
+    position: absolute;
+  }
+  .frame1-text02 {
+    top: 345px;
+    left: 0px;
+    color: rgba(199, 100, 177, 1);
+    right: 0px;
+    height: auto;
+    margin: auto;
+    position: absolute;
+    font-size: 16px;
+    font-style: Bold;
+    text-align: center;
+    font-family: Encode Sans Semi Expanded;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .frame1-text04 {
+    color: rgba(0, 0, 0, 1);
+    width: 100%;
+    height: auto;
+    font-size: 20px;
+    align-self: center;
+    font-style: Regular;
+    text-align: center;
+    font-family: Encode Sans Expanded;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .frame1-text06 {
+    top: 278px;
+    left: 62px;
+    color: rgba(0, 0, 0, 1);
+    height: auto;
+    position: absolute;
+    font-size: 13px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Encode Sans Expanded;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .frame1-tale-2 {
+    top: 110.99998474121094px;
+    left: 0px;
+    right: 0px;
+    width: 287px;
+    height: 442px;
+    margin: auto;
+    display: flex;
+    position: absolute;
+    align-self: center;
+    box-shadow: 5px 5px 40px 0px rgba(0, 0, 0, 0.16);
+    flex-shrink: 1;
+    border-radius: var(--dl-radius-radius-radius8);
+    flex-direction: row;
+    background-color: rgba(249, 242, 241, 1);
+  }
+  .frame1-image2 {
+    top: 34.1666259765625px;
+    left: 37px;
+    width: 214px;
+    height: 167px;
+    position: absolute;
+  }
+  .frame1-text11 {
+    top: 348.1666259765625px;
+    left: 0px;
+    color: rgba(199, 100, 177, 1);
+    right: 0px;
+    height: auto;
+    margin: auto;
+    position: absolute;
+    font-size: 16px;
+    font-style: Bold;
+    text-align: center;
+    font-family: Encode Sans Semi Expanded;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .frame1-text13 {
+    color: rgba(0, 0, 0, 1);
+    width: 100%;
+    height: auto;
+    font-size: 20px;
+    align-self: center;
+    font-style: Regular;
+    text-align: center;
+    font-family: Encode Sans Expanded;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .frame1-text15 {
+    top: 260.1666259765625px;
+    left: 51px;
+    color: rgba(0, 0, 0, 1);
+    height: auto;
+    position: absolute;
+    font-size: 13px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Encode Sans Expanded;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .frame1-tale-3 {
+    top: 232.99998474121094px;
+    right: 0px;
+    width: 287px;
+    height: 442px;
+    display: flex;
+    position: absolute;
+    box-shadow: 5px 5px 40px 0px rgba(0, 0, 0, 0.2);
+    flex-shrink: 1;
+    border-radius: var(--dl-radius-radius-radius8);
+    flex-direction: row;
+    background-color: rgba(249, 242, 241, 1);
+  }
+  .frame1-image3 {
+    top: 34.1666259765625px;
+    left: 37px;
+    width: 214px;
+    height: 167px;
+    position: absolute;
+  }
+  .frame1-text24 {
+    top: 350px;
+    left: 0px;
+    color: rgba(199, 100, 177, 1);
+    right: 0px;
+    height: auto;
+    margin: auto;
+    position: absolute;
+    font-size: 16px;
+    font-style: Bold;
+    text-align: center;
+    font-family: Encode Sans Semi Expanded;
+    font-weight: 700;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .frame1-text26 {
+    color: rgba(0, 0, 0, 1);
+    width: 100%;
+    height: auto;
+    font-size: 20px;
+    align-self: center;
+    font-style: Regular;
+    text-align: center;
+    font-family: Encode Sans Expanded;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .frame1-text28 {
+    top: 264px;
+    left: 58px;
+    color: rgba(0, 0, 0, 1);
+    height: auto;
+    position: absolute;
+    font-size: 13px;
+    font-style: Regular;
+    text-align: center;
+    font-family: Encode Sans Expanded;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  .frame1-footer {
+    width: 100%;
+    height: 107.14279174804688px;
+    display: flex;
+    position: relative;
+    align-self: stretch;
+    align-items: flex-start;
+    flex-shrink: 1;
+    background-color: rgba(49, 47, 47, 1);
+  }
+  .frame1-text37 {
+    color: rgba(250, 236, 238, 1);
+    width: 100%;
+    height: auto;
+    font-size: 16px;
+    align-self: center;
+    font-style: Regular;
+    text-align: center;
+    font-family: Fira Sans;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    text-decoration: none;
+  }
+  
