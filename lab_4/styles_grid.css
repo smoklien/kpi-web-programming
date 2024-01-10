@@ -1,327 +1,286 @@
-html, body {
-    margin: 0;
-    padding: 0;
-}
 
-.frame1-container {
-    width: 100%;
-    display: flex;
-    overflow: auto;
-    min-height: 100vh;
-    align-items: center;
-    flex-direction: column;
-  }
-  .frame1-frame1 {
-    gap: -101px;
-    width: 100%;
-    height: 1001px;
-    display: flex;
-    overflow: hidden;
-    align-items: center;
-    flex-shrink: 0;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: rgba(230, 190, 195, 1);
-  }
-  .frame1-header {
-    width: 935px;
-    height: 75px;
-    display: flex;
-    position: relative;
-    align-items: flex-start;
-    flex-shrink: 1;
-  }
-  .frame1-link {
-    display: contents;
-  }
-  .frame1-menu {
-    top: 0px;
-    right: 0px;
-    width: 25px;
-    bottom: 0px;
-    height: 20px;
-    margin: auto;
-    position: absolute;
-    text-decoration: none;
-  }
-  .frame1-logo {
-    color: rgba(97, 62, 132, 1);
-    width: 167px;
-    height: auto;
-    font-size: 24px;
-    align-self: center;
-    font-style: Regular;
-    text-align: center;
-    font-family: Expletus Sans;
-    font-weight: 400;
-    line-height: normal;
-    font-stretch: normal;
-    text-decoration: none;
-  }
-  .frame1-name {
-    color: rgba(199, 100, 177, 1);
-    height: auto;
-    font-size: 48px;
-    font-style: Bold;
-    text-align: center;
-    font-family: Encode Sans Expanded;
-    font-weight: 700;
-    line-height: normal;
-    font-stretch: normal;
-    text-decoration: none;
-  }
-  .frame1-main {
-    width: 100%;
-    height: 681px;
-    display: flex;
-    position: relative;
-    align-self: stretch;
-    flex-shrink: 1;
-    flex-direction: row;
-  }
-  .frame1-strip {
-    top: 171.33331298828125px;
-    left: 0px;
-    width: 1574px;
-    height: 224px;
-    position: absolute;
-    align-self: stretch;
-  }
-  .frame1-content {
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    width: 915px;
-    bottom: 0px;
-    height: 674.9999847412109px;
-    margin: auto;
-    display: flex;
-    position: absolute;
-    flex-direction: row;
-  }
-  .frame1-tale-1 {
-    top: 0px;
-    left: 0px;
-    width: 287px;
-    height: 442px;
-    display: flex;
-    position: absolute;
-    box-shadow: 5px 5px 30px 0px rgba(0, 0, 0, 0.18);
-    flex-shrink: 1;
-    border-radius: var(--dl-radius-radius-radius8);
-    flex-direction: row;
-    background-color: rgba(249, 242, 241, 1);
-  }
-  .frame1-image1 {
-    top: 30px;
-    left: 37px;
-    width: 214px;
-    height: 167px;
-    position: absolute;
-  }
-  .frame1-text02 {
-    top: 345px;
-    left: 0px;
-    color: rgba(199, 100, 177, 1);
-    right: 0px;
-    height: auto;
-    margin: auto;
-    position: absolute;
-    font-size: 16px;
-    font-style: Bold;
-    text-align: center;
-    font-family: Encode Sans Semi Expanded;
-    font-weight: 700;
-    line-height: normal;
-    font-stretch: normal;
-    text-decoration: none;
-  }
-  .frame1-text04 {
-    color: rgba(0, 0, 0, 1);
-    width: 100%;
-    height: auto;
-    font-size: 20px;
-    align-self: center;
-    font-style: Regular;
-    text-align: center;
-    font-family: Encode Sans Expanded;
-    font-weight: 400;
-    line-height: normal;
-    font-stretch: normal;
-    text-decoration: none;
-  }
-  .frame1-text06 {
-    top: 278px;
-    left: 62px;
-    color: rgba(0, 0, 0, 1);
-    height: auto;
-    position: absolute;
-    font-size: 13px;
-    font-style: Regular;
-    text-align: center;
-    font-family: Encode Sans Expanded;
-    font-weight: 400;
-    line-height: normal;
-    font-stretch: normal;
-    text-decoration: none;
-  }
-  .frame1-tale-2 {
-    top: 110.99998474121094px;
-    left: 0px;
-    right: 0px;
-    width: 287px;
-    height: 442px;
-    margin: auto;
-    display: flex;
-    position: absolute;
-    align-self: center;
-    box-shadow: 5px 5px 40px 0px rgba(0, 0, 0, 0.16);
-    flex-shrink: 1;
-    border-radius: var(--dl-radius-radius-radius8);
-    flex-direction: row;
-    background-color: rgba(249, 242, 241, 1);
-  }
-  .frame1-image2 {
-    top: 34.1666259765625px;
-    left: 37px;
-    width: 214px;
-    height: 167px;
-    position: absolute;
-  }
-  .frame1-text11 {
-    top: 348.1666259765625px;
-    left: 0px;
-    color: rgba(199, 100, 177, 1);
-    right: 0px;
-    height: auto;
-    margin: auto;
-    position: absolute;
-    font-size: 16px;
-    font-style: Bold;
-    text-align: center;
-    font-family: Encode Sans Semi Expanded;
-    font-weight: 700;
-    line-height: normal;
-    font-stretch: normal;
-    text-decoration: none;
-  }
-  .frame1-text13 {
-    color: rgba(0, 0, 0, 1);
-    width: 100%;
-    height: auto;
-    font-size: 20px;
-    align-self: center;
-    font-style: Regular;
-    text-align: center;
-    font-family: Encode Sans Expanded;
-    font-weight: 400;
-    line-height: normal;
-    font-stretch: normal;
-    text-decoration: none;
-  }
-  .frame1-text15 {
-    top: 260.1666259765625px;
-    left: 51px;
-    color: rgba(0, 0, 0, 1);
-    height: auto;
-    position: absolute;
-    font-size: 13px;
-    font-style: Regular;
-    text-align: center;
-    font-family: Encode Sans Expanded;
-    font-weight: 400;
-    line-height: normal;
-    font-stretch: normal;
-    text-decoration: none;
-  }
-  .frame1-tale-3 {
-    top: 232.99998474121094px;
-    right: 0px;
-    width: 287px;
-    height: 442px;
-    display: flex;
-    position: absolute;
-    box-shadow: 5px 5px 40px 0px rgba(0, 0, 0, 0.2);
-    flex-shrink: 1;
-    border-radius: var(--dl-radius-radius-radius8);
-    flex-direction: row;
-    background-color: rgba(249, 242, 241, 1);
-  }
-  .frame1-image3 {
-    top: 34.1666259765625px;
-    left: 37px;
-    width: 214px;
-    height: 167px;
-    position: absolute;
-  }
-  .frame1-text24 {
-    top: 350px;
-    left: 0px;
-    color: rgba(199, 100, 177, 1);
-    right: 0px;
-    height: auto;
-    margin: auto;
-    position: absolute;
-    font-size: 16px;
-    font-style: Bold;
-    text-align: center;
-    font-family: Encode Sans Semi Expanded;
-    font-weight: 700;
-    line-height: normal;
-    font-stretch: normal;
-    text-decoration: none;
-  }
-  .frame1-text26 {
-    color: rgba(0, 0, 0, 1);
-    width: 100%;
-    height: auto;
-    font-size: 20px;
-    align-self: center;
-    font-style: Regular;
-    text-align: center;
-    font-family: Encode Sans Expanded;
-    font-weight: 400;
-    line-height: normal;
-    font-stretch: normal;
-    text-decoration: none;
-  }
-  .frame1-text28 {
-    top: 264px;
-    left: 58px;
-    color: rgba(0, 0, 0, 1);
-    height: auto;
-    position: absolute;
-    font-size: 13px;
-    font-style: Regular;
-    text-align: center;
-    font-family: Encode Sans Expanded;
-    font-weight: 400;
-    line-height: normal;
-    font-stretch: normal;
-    text-decoration: none;
-  }
-  .frame1-footer {
-    width: 100%;
-    height: 107.14279174804688px;
-    display: flex;
-    position: relative;
-    align-self: stretch;
-    align-items: flex-start;
-    flex-shrink: 1;
-    background-color: rgba(49, 47, 47, 1);
-  }
-  .frame1-text37 {
-    color: rgba(250, 236, 238, 1);
-    width: 100%;
-    height: auto;
-    font-size: 16px;
-    align-self: center;
-    font-style: Regular;
-    text-align: center;
-    font-family: Fira Sans;
-    font-weight: 400;
-    line-height: normal;
-    font-stretch: normal;
-    text-decoration: none;
-  }
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  /* width: 136.7rem; */
+  width: 100%;
   
+}
+.desktop-R9j {
+  box-sizing: border-box;
+  padding-bottom: 0rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #e6bec3;
+}
+.desktop-R9j .auto-group-rwaz-NUH {
+  box-sizing: border-box;
+  padding: 2.1rem 22.2rem 5.388rem 22.2rem;
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.desktop-R9j .auto-group-rwaz-NUH .menu-meq {
+  margin-bottom: 7.5123rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.desktop-R9j .auto-group-rwaz-NUH .menu-meq .logo-Juf {
+  margin-right: 72.5rem;
+  display: flex;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.3375;
+  color: #613e84;
+  font-family: Expletus Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.desktop-R9j .auto-group-rwaz-NUH .menu-meq .union-a6V {
+  margin-bottom: 0rem;
+  width: 3.1rem;
+  height: 2rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.desktop-R9j .auto-group-rwaz-NUH .name-937 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4.8rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #c764b1;
+  font-family: Encode Sans Expanded, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.desktop-R9j .main-qgd {
+  margin-bottom: 11.7245rem;
+  width: 100%;
+  height: 67.7rem;
+  position: relative;
+  flex-shrink: 0;
+}
+.desktop-R9j .main-qgd .strip-BkV {
+  width: 136.7rem;
+  height: 25.6rem;
+  position: absolute;
+  left: 0;
+  top: 14.0245rem;
+  background-color: #613e84;
+}
+.desktop-R9j .main-qgd .content-JaD {
+  width: 96.6rem;
+  height: 67.7rem;
+  position: absolute;
+  left: 20.1rem;
+  top: 0;
+  display: flex;
+  column-gap: 3.3rem;
+  align-items: center;
+}
+.desktop-R9j .main-qgd .content-JaD .content-1-Req {
+  margin-bottom: 17.7rem;
+  box-sizing: border-box;
+  padding: 2.2rem 2.2rem 11.5rem 2.2rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.150000006);
+  background-color: #ffffff;
+  border-radius: 0.8rem;
+  flex-shrink: 0;
+}
+.desktop-R9j .main-qgd .content-JaD .content-1-Req .image-1-8JM {
+  margin-bottom: 1.25rem;
+  width: 25.6rem;
+  height: 17rem;
+  object-fit: cover;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.desktop-R9j .main-qgd .content-JaD .content-1-Req .agaricus-bisporus-rk9 {
+  margin-bottom: 5.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: #000000;
+  font-family: Encode Sans Expanded, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.desktop-R9j .main-qgd .content-JaD .content-1-Req .commonly-known-as-the-cultivated-mushroom-yJy {
+  margin-bottom: 4.25rem;
+  max-width: 22.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: #000000;
+  font-family: Encode Sans Expanded, 'Source Sans Pro';
+  flex-shrink: 0;
+}
+.desktop-R9j .main-qgd .content-JaD .content-1-Req .learn-more-fSh {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #c764b1;
+  font-family: Encode Sans Semi Expanded, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.desktop-R9j .main-qgd .content-JaD .content-2-YWV {
+  margin: 7.9rem 0rem 9.8rem 0rem;
+  box-sizing: border-box;
+  padding: 2.2rem 2.2rem 11.5rem 2.2rem;
+  height: calc(100% - 17.7rem);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.150000006);
+  background-color: #ffffff;
+  border-radius: 0.8rem;
+  flex-shrink: 0;
+}
+.desktop-R9j .main-qgd .content-JaD .content-2-YWV .image-2-qkV {
+  margin-bottom: 1.25rem;
+  width: 25.6rem;
+  height: 17rem;
+  object-fit: cover;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.desktop-R9j .main-qgd .content-JaD .content-2-YWV .agaricus-bitorquis-ai5 {
+  margin-bottom: 4.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: #000000;
+  font-family: Encode Sans Expanded, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.desktop-R9j .main-qgd .content-JaD .content-2-YWV .commonly-known-as-torq-banded-agaric-spring-agaric-banded-agaricus-urban-agaricus-7CD {
+  margin-bottom: 3.45rem;
+  max-width: 25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: #000000;
+  font-family: Encode Sans Expanded, 'Source Sans Pro';
+  flex-shrink: 0;
+}
+.desktop-R9j .main-qgd .content-JaD .content-2-YWV .learn-more-nJM {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #c764b1;
+  font-family: Encode Sans Semi Expanded, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.desktop-R9j .main-qgd .content-JaD .content-3-fd3 {
+  margin-top: 17.7rem;
+  box-sizing: border-box;
+  padding: 2.2rem 2.2rem 11.5rem 2.2rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.150000006);
+  background-color: #ffffff;
+  border-radius: 0.8rem;
+  flex-shrink: 0;
+}
+.desktop-R9j .main-qgd .content-JaD .content-3-fd3 .image-3-nxZ {
+  margin-bottom: 1.25rem;
+  width: 25.6rem;
+  height: 17rem;
+  object-fit: cover;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.desktop-R9j .main-qgd .content-JaD .content-3-fd3 .amanita-jacksonii-ibK {
+  margin-bottom: 4.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: #000000;
+  font-family: Encode Sans Expanded, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.desktop-R9j .main-qgd .content-JaD .content-3-fd3 .also-known-as-jacksons-slender-amanita-american-slender-caesar-and-eastern-caesars-amanita-3db {
+  margin-bottom: 3.45rem;
+  max-width: 25.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: #000000;
+  font-family: Encode Sans Expanded, 'Source Sans Pro';
+  flex-shrink: 0;
+}
+.desktop-R9j .main-qgd .content-JaD .content-3-fd3 .learn-more-ufo {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #c764b1;
+  font-family: Encode Sans Semi Expanded, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.desktop-R9j .footer-BtD {
+  width: 100%;
+  height: 10.5755rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #faedee;
+  font-family: Fira Sans, 'Source Sans Pro';
+  white-space: nowrap;
+  background-color: #31302f;
+  flex-shrink: 0;
+}
