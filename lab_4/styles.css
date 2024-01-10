@@ -112,7 +112,7 @@ body {
   border-radius: 0.8rem;
   flex-shrink: 0;
 }
-.container .main .main-content .tile-1 .mushroom-image-1 {
+.container .main .main-content .mushroom-image {
   margin-bottom: 1.25rem;
   width: 25.6rem;
   height: 17rem;
@@ -120,7 +120,7 @@ body {
   vertical-align: top;
   flex-shrink: 0;
 }
-.container .main .main-content .tile-1 .mushroom-name-1 {
+.container .main .main-content .mushroom-name {
   margin-bottom: 5.5rem;
   display: flex;
   align-items: center;
@@ -133,10 +133,12 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.container .main .main-content .tile-1 .mushroom-text-1 {
+
+.container .main .main-content .mushroom-text {
   margin-bottom: 4.25rem;
-  max-width: 22.7rem;
+  max-width: 23rem;
   display: flex;
+  text-align: center;
   align-items: center;
   justify-content: center;
   font-size: 1.3rem;
@@ -146,7 +148,7 @@ body {
   font-family: Encode Sans Expanded, 'Source Sans Pro';
   flex-shrink: 0;
 }
-.container .main .main-content .tile-1 .learn-more-button-1 {
+.container .main .main-content .learn-more-button {
   text-align: center;
   font-size: 2rem;
   font-weight: 700;
@@ -169,50 +171,7 @@ body {
   border-radius: 0.8rem;
   flex-shrink: 0;
 }
-.container .main .main-content .tile-2 .mushroom-image-2 {
-  margin-bottom: 1.25rem;
-  width: 25.6rem;
-  height: 17rem;
-  object-fit: cover;
-  vertical-align: top;
-  flex-shrink: 0;
-}
-.container .main .main-content .tile-2 .mushroom-name-2 {
-  margin-bottom: 4.7rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 1.25;
-  color: #000000;
-  font-family: Encode Sans Expanded, 'Source Sans Pro';
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.container .main .main-content .tile-2 .mushroom-text-2 {
-  margin-bottom: 3.45rem;
-  max-width: 25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  font-weight: 400;
-  line-height: 1.25;
-  color: #000000;
-  font-family: Encode Sans Expanded, 'Source Sans Pro';
-  flex-shrink: 0;
-}
-.container .main .main-content .tile-2 .learn-more-button-2 {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.25;
-  color: #c764b1;
-  font-family: Encode Sans Semi Expanded, 'Source Sans Pro';
-  white-space: nowrap;
-  flex-shrink: 0;
-}
+
 .container .main .main-content .tile-3 {
   margin-top: 17.7rem;
   box-sizing: border-box;
@@ -225,50 +184,7 @@ body {
   border-radius: 0.8rem;
   flex-shrink: 0;
 }
-.container .main .main-content .tile-3 .mushroom-image-3 {
-  margin-bottom: 1.25rem;
-  width: 25.6rem;
-  height: 17rem;
-  object-fit: cover;
-  vertical-align: top;
-  flex-shrink: 0;
-}
-.container .main .main-content .tile-3 .mushroom-name-3 {
-  margin-bottom: 4.7rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 1.25;
-  color: #000000;
-  font-family: Encode Sans Expanded, 'Source Sans Pro';
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.container .main .main-content .tile-3 .mushroom-text-3 {
-  margin-bottom: 3.45rem;
-  max-width: 25.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  font-weight: 400;
-  line-height: 1.25;
-  color: #000000;
-  font-family: Encode Sans Expanded, 'Source Sans Pro';
-  flex-shrink: 0;
-}
-.container .main .main-content .tile-3 .learn-more-button-3 {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.25;
-  color: #c764b1;
-  font-family: Encode Sans Semi Expanded, 'Source Sans Pro';
-  white-space: nowrap;
-  flex-shrink: 0;
-}
+
 .container .footer {
   width: 100%;
   height: 10.5755rem;
