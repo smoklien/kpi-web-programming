@@ -13,7 +13,7 @@ The repository is organized into different lab folders:
 
 ## Website Access
 
-To access all labs in one place, visit the [index.html](index.html) page.
+To access all labs in one place, visit the [index.html](https://smoklien.github.io/) page.
 
 ## Site Preview
 
