@@ -11,13 +11,9 @@ The repository is organized into different lab folders:
 - [lab_3](lab_3/)
 - [lab_4](lab_4/)
 
-## Additional Materials
-
-- [materials](materials/): Supplementary materials related to the labs.
-
 ## Website Access
 
-To access all labs in one place, visit the [index.html](index.html) page on the site.
+To access all labs in one place, visit the [index.html](index.html) page.
 
 ## Site Preview
 
