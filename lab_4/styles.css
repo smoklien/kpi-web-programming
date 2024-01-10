@@ -20,9 +20,7 @@ input {
 }
 
 body {
-  /* width: 136.7rem; */
   width: 100%;
-  
 }
 
 .container {
@@ -101,7 +99,6 @@ body {
 .content {
   width: 96.6rem;
   height: 67.7rem;
-  /* position: absolute; */
   left: 20.1rem;
   top: 0;
   display: flex;
