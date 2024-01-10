@@ -1,7 +1,3 @@
-# smoklien.github.io
-
-Site is visible on: https://smoklien.github.io/
-
 # my-github.github.io
 
 Welcome to my GitHub repository for university lab works. The associated website is accessible at [https://smoklien.github.io/](https://smoklien.github.io/).
