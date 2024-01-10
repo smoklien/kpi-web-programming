@@ -133,10 +133,6 @@ body {
   margin-bottom: 16rem;
 }
 
-#tile2 {
-  margin: 0rem;
-}
-
 #tile3 {
   margin-top: 16rem;
 }
@@ -204,4 +200,36 @@ body {
   white-space: nowrap;
   background-color: #31302f;
   flex-shrink: 0;
+}
+
+@media only screen and (max-width: 478px) {
+  .logo {
+    margin-right: 14rem;
+  }
+
+  .site-name {
+    font-size: 3rem;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .main {
+    height: auto;
+  }
+
+  .content {
+    flex-direction: column;
+    height: 100%;
+    align-items: center; /* Center the items in the column */
+    row-gap: 3.3rem;
+    column-gap: normal;
+  }
+
+  #tile1 {
+    margin: 0;
+  }
+
+  #tile3 {
+    margin: 0;
+  }
 }
