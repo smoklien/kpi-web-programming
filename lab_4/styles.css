@@ -17,7 +17,7 @@ body {
   width: 100%;
   
 }
-.desktop-R9j {
+.container {
   box-sizing: border-box;
   padding-bottom: 0rem;
   width: 100%;
@@ -28,7 +28,7 @@ body {
   flex-direction: column;
   background-color: #e6bec3;
 }
-.desktop-R9j .auto-group-rwaz-NUH {
+.container .header {
   box-sizing: border-box;
   padding: 2.1rem 22.2rem 5.388rem 22.2rem;
   width: 100%;
@@ -37,14 +37,14 @@ body {
   flex-direction: column;
   flex-shrink: 0;
 }
-.desktop-R9j .auto-group-rwaz-NUH .menu-meq {
+.container .header .menu {
   margin-bottom: 7.5123rem;
   width: 100%;
   display: flex;
   align-items: center;
   flex-shrink: 0;
 }
-.desktop-R9j .auto-group-rwaz-NUH .menu-meq .logo-Juf {
+.container .header .menu .logo-mini {
   margin-right: 72.5rem;
   display: flex;
   font-size: 2.4rem;
@@ -55,7 +55,7 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.desktop-R9j .auto-group-rwaz-NUH .menu-meq .union-a6V {
+.container .header .menu .burger-menu {
   margin-bottom: 0rem;
   width: 3.1rem;
   height: 2rem;
@@ -63,7 +63,7 @@ body {
   vertical-align: top;
   flex-shrink: 0;
 }
-.desktop-R9j .auto-group-rwaz-NUH .name-937 {
+.container .header .logo {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,22 +75,22 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.desktop-R9j .main-qgd {
+.container .main {
   margin-bottom: 11.7245rem;
   width: 100%;
   height: 67.7rem;
   position: relative;
   flex-shrink: 0;
 }
-.desktop-R9j .main-qgd .strip-BkV {
-  width: 136.7rem;
+.container .main .strip {
+  width: 100%;
   height: 25.6rem;
   position: absolute;
   left: 0;
   top: 14.0245rem;
   background-color: #613e84;
 }
-.desktop-R9j .main-qgd .content-JaD {
+.container .main .main-content {
   width: 96.6rem;
   height: 67.7rem;
   position: absolute;
@@ -100,7 +100,7 @@ body {
   column-gap: 3.3rem;
   align-items: center;
 }
-.desktop-R9j .main-qgd .content-JaD .content-1-Req {
+.container .main .main-content .tile-1 {
   margin-bottom: 17.7rem;
   box-sizing: border-box;
   padding: 2.2rem 2.2rem 11.5rem 2.2rem;
@@ -112,7 +112,7 @@ body {
   border-radius: 0.8rem;
   flex-shrink: 0;
 }
-.desktop-R9j .main-qgd .content-JaD .content-1-Req .image-1-8JM {
+.container .main .main-content .tile-1 .mushroom-image-1 {
   margin-bottom: 1.25rem;
   width: 25.6rem;
   height: 17rem;
@@ -120,7 +120,7 @@ body {
   vertical-align: top;
   flex-shrink: 0;
 }
-.desktop-R9j .main-qgd .content-JaD .content-1-Req .agaricus-bisporus-rk9 {
+.container .main .main-content .tile-1 .mushroom-name-1 {
   margin-bottom: 5.5rem;
   display: flex;
   align-items: center;
@@ -133,7 +133,7 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.desktop-R9j .main-qgd .content-JaD .content-1-Req .commonly-known-as-the-cultivated-mushroom-yJy {
+.container .main .main-content .tile-1 .mushroom-text-1 {
   margin-bottom: 4.25rem;
   max-width: 22.7rem;
   display: flex;
@@ -146,7 +146,7 @@ body {
   font-family: Encode Sans Expanded, 'Source Sans Pro';
   flex-shrink: 0;
 }
-.desktop-R9j .main-qgd .content-JaD .content-1-Req .learn-more-fSh {
+.container .main .main-content .tile-1 .learn-more-button-1 {
   text-align: center;
   font-size: 2rem;
   font-weight: 700;
@@ -156,7 +156,7 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.desktop-R9j .main-qgd .content-JaD .content-2-YWV {
+.container .main .main-content .tile-2 {
   margin: 7.9rem 0rem 9.8rem 0rem;
   box-sizing: border-box;
   padding: 2.2rem 2.2rem 11.5rem 2.2rem;
@@ -169,7 +169,7 @@ body {
   border-radius: 0.8rem;
   flex-shrink: 0;
 }
-.desktop-R9j .main-qgd .content-JaD .content-2-YWV .image-2-qkV {
+.container .main .main-content .tile-2 .mushroom-image-2 {
   margin-bottom: 1.25rem;
   width: 25.6rem;
   height: 17rem;
@@ -177,7 +177,7 @@ body {
   vertical-align: top;
   flex-shrink: 0;
 }
-.desktop-R9j .main-qgd .content-JaD .content-2-YWV .agaricus-bitorquis-ai5 {
+.container .main .main-content .tile-2 .mushroom-name-2 {
   margin-bottom: 4.7rem;
   display: flex;
   align-items: center;
@@ -190,7 +190,7 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.desktop-R9j .main-qgd .content-JaD .content-2-YWV .commonly-known-as-torq-banded-agaric-spring-agaric-banded-agaricus-urban-agaricus-7CD {
+.container .main .main-content .tile-2 .mushroom-text-2 {
   margin-bottom: 3.45rem;
   max-width: 25rem;
   display: flex;
@@ -203,7 +203,7 @@ body {
   font-family: Encode Sans Expanded, 'Source Sans Pro';
   flex-shrink: 0;
 }
-.desktop-R9j .main-qgd .content-JaD .content-2-YWV .learn-more-nJM {
+.container .main .main-content .tile-2 .learn-more-button-2 {
   text-align: center;
   font-size: 2rem;
   font-weight: 700;
@@ -213,7 +213,7 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.desktop-R9j .main-qgd .content-JaD .content-3-fd3 {
+.container .main .main-content .tile-3 {
   margin-top: 17.7rem;
   box-sizing: border-box;
   padding: 2.2rem 2.2rem 11.5rem 2.2rem;
@@ -225,7 +225,7 @@ body {
   border-radius: 0.8rem;
   flex-shrink: 0;
 }
-.desktop-R9j .main-qgd .content-JaD .content-3-fd3 .image-3-nxZ {
+.container .main .main-content .tile-3 .mushroom-image-3 {
   margin-bottom: 1.25rem;
   width: 25.6rem;
   height: 17rem;
@@ -233,7 +233,7 @@ body {
   vertical-align: top;
   flex-shrink: 0;
 }
-.desktop-R9j .main-qgd .content-JaD .content-3-fd3 .amanita-jacksonii-ibK {
+.container .main .main-content .tile-3 .mushroom-name-3 {
   margin-bottom: 4.7rem;
   display: flex;
   align-items: center;
@@ -246,7 +246,7 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.desktop-R9j .main-qgd .content-JaD .content-3-fd3 .also-known-as-jacksons-slender-amanita-american-slender-caesar-and-eastern-caesars-amanita-3db {
+.container .main .main-content .tile-3 .mushroom-text-3 {
   margin-bottom: 3.45rem;
   max-width: 25.5rem;
   display: flex;
@@ -259,7 +259,7 @@ body {
   font-family: Encode Sans Expanded, 'Source Sans Pro';
   flex-shrink: 0;
 }
-.desktop-R9j .main-qgd .content-JaD .content-3-fd3 .learn-more-ufo {
+.container .main .main-content .tile-3 .learn-more-button-3 {
   text-align: center;
   font-size: 2rem;
   font-weight: 700;
@@ -269,7 +269,7 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.desktop-R9j .footer-BtD {
+.container .footer {
   width: 100%;
   height: 10.5755rem;
   display: flex;
