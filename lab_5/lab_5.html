@@ -41,14 +41,20 @@
             <li>Gymnopilus</li>
             <li>Pholiotina</li>
         </ul>
+        <label for="inputTriangleValue">Enter Base and Height: </label>
+        <input type="number" id="inputTriangleBase" placeholder="Base">
+        <input type="number" id="inputTriangleHeight" placeholder="Height">
+        <button onclick="onClickDisplayResults()">Result</button>
+        <div class="resultTriangleText"></div>
     </main>
-    <aside class="aside-right" id="top">
+    <aside class="aside-right" id="top" onclick="onClickSwapContent()">
         <p>Only now a 15% DISCOUNT for all Psychodelic mushroom on our site!</p>
     </aside>
-    <aside class="aside-right" id="bottom">
+    <aside class="aside-right" id="bottom" onclick="onClickSwapContent()">
         <img src="assets/bg_8.jpg" alt="mushrooms">
     </aside>
     <footer>
         <p>All rights are reserved. Do not even try to still something.</p>
     </footer>
+    <script src="script.js"></script>
 </body>

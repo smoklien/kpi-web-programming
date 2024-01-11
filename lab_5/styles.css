@@ -39,15 +39,6 @@ main {
     padding: 2%;
 }
 
-main table, main table img {
-    height: 100%;
-}
-
-main table img {
-    width: 100%;
-    height: auto;
-}
-
 footer {
     grid-area: footer;
     display: grid;
@@ -68,11 +59,26 @@ a {
     display: grid;
 }
 
-p, li{
+p, label, input, button, li{
     font-family: 'Inclusive Sans', 'Times New Roman', Times, serif;
     color: rgb(99, 90, 60);
 }
 
+input, button {
+    background-color: rgb(255, 247, 219);
+    border-color:rgb(99, 90, 60);
+    text-align: left;
+    border-radius: 2px;
+    border-width: 0.6px;
+}
+
+input {
+    color: rgb(101, 96, 79);
+}
+
+input {
+    max-width: 10%;
+}
 .aside-left {
     grid-area: menu;
     display: grid;
@@ -92,7 +98,7 @@ p, li{
     grid-area: bottom;
 }
 
-#bottom img {
+img {
     max-width: 70%;
     justify-self: center;
 }
