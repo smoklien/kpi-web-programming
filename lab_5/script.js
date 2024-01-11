@@ -1,4 +1,5 @@
-// Task 1
+// Task #1
+
 // Function to swap the content of top and botton blocks
 const onClickSwapContent = () => {
     const topElement = document.getElementById('top');
@@ -14,7 +15,8 @@ const onClickSwapContent = () => {
      console.log('After Swap:', topElement.innerHTML, bottomElement.innerHTML);
  }
 
- // Task 2
+ // Task #2
+
  // Function to calculate the area of a triangle
 const calculateTriangleArea = (base, height) => {
     return 0.5 * base * height;
@@ -22,9 +24,9 @@ const calculateTriangleArea = (base, height) => {
 
 // Function to display results
 const onClickDisplayResults = () => {
-    const baseValue = document.getElementById('inputTriangleBase').value;
-    const heightValue = document.getElementById('inputTriangleHeight').value;
-    const resultDiv = document.querySelector('.resultTriangleText');
+    const baseValue = document.getElementById('base').value;
+    const heightValue = document.getElementById('height').value;
+    const resultDiv = document.getElementById('triangle-result');
     const resultParagraph = document.createElement('p');
 
     // Clear previous results
@@ -40,3 +42,45 @@ const onClickDisplayResults = () => {
 
     resultDiv.appendChild(resultParagraph);
 }
+
+// Task #3
+
+// Function to count the number of minimum values
+const countMinNumbers = () => {
+    const input = document.getElementById('number-input').value;
+    const numbers = input.split(',').map(Number);
+
+    if (numbers.length === 10) {
+        const minNumber = Math.min(...numbers);
+        const countMin = numbers.filter(num => num === minNumber).length;
+
+        // Display result using a dialog window
+        const resultMessage = `The minimum number is ${minNumber}, and it appears ${countMin} time(s).`;
+        alert(resultMessage);
+
+        // Save result to cookies
+        document.cookie = `minNumbers=${countMin}; expires=Fri, 31 Dec 6666 23:59:59 GMT;`;
+
+        // Ask user if they want to delete cookies
+        const deleteCookies = confirm("Do you want to delete the cookies?");
+        if (deleteCookies) {
+            // Delete cookies and reload the page
+            document.cookie = "minNumbers=; expires=Thu, 01 Jan 1990 00:00:00 GMT;";
+            alert("Cookies have been deleted.");
+            location.reload();
+        }
+    } 
+    else {
+        alert("Please enter 10 numbers separated by commas.");
+    }
+}
+
+// // Display information from cookies on page load
+// window.addEventListener('load', () => {
+//     const minNumbersCookie = document.cookie.split(';').find(cookie => cookie.includes('minNumbers'));
+//     if (minNumbersCookie) {
+//         const minNumbersValue = minNumbersCookie.split('=')[1];
+//         alert(`Information from cookies: ${minNumbersValue}`);
+//         document.cookie = "minNumbers=; expires=Thu, 01 Jan 1970 00:00:00 GMT;";
+//     }
+// });

@@ -41,11 +41,19 @@
             <li>Gymnopilus</li>
             <li>Pholiotina</li>
         </ul>
-        <label for="inputTriangleValue">Enter Base and Height: </label>
-        <input type="number" id="inputTriangleBase" placeholder="Base">
-        <input type="number" id="inputTriangleHeight" placeholder="Height">
-        <button onclick="onClickDisplayResults()">Result</button>
-        <div class="resultTriangleText"></div>
+        <div class="triangle-calculator">
+            <label for="base">Enter Base: </label>
+            <input type="number" id="base" placeholder="Base">
+            <label for="height">Enter Height: </label>
+            <input type="number" id="height" placeholder="Height">
+            <button onclick="onClickDisplayResults()">Result</button>
+            <div class="text" id="triangle-result"></div>
+        </div>
+        <div class="number-count">
+            <label for="number-input">Enter 10 numbers (comma-separated):</label>
+            <input type="text" id="number-input">
+            <button onclick="countMinNumbers()">Count</button>
+        </div>
     </main>
     <aside class="aside-right" id="top" onclick="onClickSwapContent()">
         <p>Only now a 15% DISCOUNT for all Psychodelic mushroom on our site!</p>

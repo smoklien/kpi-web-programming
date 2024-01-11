@@ -45,7 +45,7 @@ footer {
     align-items: start;
     background-color: rgb(218, 201, 148);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 50%;
+    font-size: 70%;
     padding: 10px;
 }
 
@@ -68,17 +68,15 @@ input, button {
     background-color: rgb(255, 247, 219);
     border-color:rgb(99, 90, 60);
     text-align: left;
-    border-radius: 2px;
+    border-radius: 3px;
     border-width: 0.6px;
 }
 
 input {
     color: rgb(101, 96, 79);
-}
-
-input {
     max-width: 10%;
 }
+
 .aside-left {
     grid-area: menu;
     display: grid;
@@ -103,16 +101,16 @@ img {
     justify-self: center;
 }
 
-.aside-left nav a:hover{
+nav a:hover{
     background-color: rgb(255, 235, 165);
     color: rgb(126, 116, 85)
 }
 
-.aside-left nav a:active {
+nav a:active {
     color: rgb(255, 243, 205);
 }
 
-.aside-left nav a {
+nav a {
     padding-left: 15%;
     align-items: center;
     font-family: 'Inclusive Sans', 'Times New Roman', Times, serif;
@@ -132,8 +130,12 @@ img {
     text-decoration: none;
 }
 
+.triangle-calculator, .number-count {
+    text-align: center;
+}
+
 @media (max-width: 426px) {
-        html, body {
+    html, body {
         overflow: hidden;
     }
 
@@ -153,10 +155,17 @@ img {
     p, li {
         font-size: 80%;
     }
+    
+    label, input, button {
+        font-size: 70%;
+    }
+
+    input {
+        max-width: 20%;
+    }
 
     .logo {
         font-size: 250%;
         padding-left: 4%;
     }
 }
-

@@ -1,1 +1,6 @@
+# This repository includes a folder named "materials".
+# It contains additional information, resources, or documentation intended for personal use or reference.
 materials
+
+# Folder with personal development environment setup
+.vscode
