@@ -78,25 +78,24 @@ p, li{
     display: grid;
 }
 
-
-.aside-right-top {
-    grid-area: top;
+.aside-right {
     display: grid;
+    align-items: center;
     text-align: center;
-    align-items: center;
 }
 
-.aside-right-bottom {
+#top {
+    grid-area: top;
+}
+
+#bottom {
     grid-area: bottom;
-    display: grid;
-    justify-content: center;
-    align-items: center;
 }
 
-.aside-right-bottom img {
-    max-width: 80%;
+#bottom img {
+    max-width: 70%;
+    justify-self: center;
 }
-
 
 .aside-left nav a:hover{
     background-color: rgb(255, 235, 165);
@@ -120,7 +119,6 @@ p, li{
 
 .logo {
     padding-left: 2%;
-
     color: rgb(214, 139, 54);
     font-family: 'Ultra', 'Times New Roman', Times, serif;
     font-size: 300%;
@@ -128,60 +126,17 @@ p, li{
     text-decoration: none;
 }
 
-@media (max-width: 990px) {
+@media (max-width: 426px) {
         html, body {
-        height: 100%;
-        width: 100%;
-        margin: 0;
-        padding: 0;
         overflow: hidden;
     }
 
     body {
-        display: grid;
-
-        grid-template-areas:
-        'header header header'
-        'menu main top'
-        'menu main bottom'
-        'menu footer footer';
-        
         grid-template-columns: 20% 60% 20%;
         grid-template-rows: 18% 37.75% 37.75% 7%;
-
-        background-color: rgb(255, 247, 219);
     }
 
-    .aside-right-bottom img {
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 592px) {
-        html, body {
-        height: 100%;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-    }
-
-    body {
-        display: grid;
-
-        grid-template-areas:
-        'header header header'
-        'menu main top'
-        'menu main bottom'
-        'menu footer footer';
-        
-        grid-template-columns: 20% 60% 20%;
-        grid-template-rows: 18% 37.75% 37.75% 7%;
-
-        background-color: rgb(255, 247, 219);
-    }
-
-    .aside-right-bottom img {
+    #bottom img {
         max-width: 100%;
     }
 
@@ -194,11 +149,8 @@ p, li{
     }
 
     .logo {
-        color: rgb(214, 139, 54);
-        font-family: 'Ultra', 'Times New Roman', Times, serif;
-        font-size: 200%;
-        text-align: left;
-        text-decoration: none;
+        font-size: 250%;
+        padding-left: 4%;
     }
 }
 
