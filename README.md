@@ -1,19 +1,18 @@
-# smoklien.github.io
+# Web Programming Lab Works Repository
 
-Welcome to my GitHub repository for university lab works. The associated website is accessible at [https://smoklien.github.io/](https://smoklien.github.io/).
+This repository contains the source code for various lab works related to Web programming.
 
-## Labs Overview
+## Repository Structure
 
 The repository is organized into different lab folders:
-
 - [lab_1](lab_1/)
 - [lab_2](lab_2/)
 - [lab_3](lab_3/)
 - [lab_4](lab_4/)
 
-## Website Access
+## Getting started
 
-To access all labs in one place, visit the [index.html](https://smoklien.github.io/) page.
+To access all labs in one place, visit the [https://smoklien.github.io/](https://smoklien.github.io/) website.
 
 ## Site Preview
 
