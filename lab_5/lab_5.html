@@ -13,55 +13,41 @@
 </head>
 
 <body>
-    <header>
+    <header id="block-1" ondblclick="createUnorderedList('block-1')">
         <a href="lab_5.html" class="logo">All The Mushrooms</a>
     </header>
-    <aside class="aside-left">
+    <aside id="block-2" class="aside-left" ondblclick="createUnorderedList('block-2')">
         <nav>
             <a href="lab_5.html">Main</a>
             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Secret menu</a>
         </nav>
     </aside>
-    <main>
-        <p>
-            A mushroom or toadstool is the fleshy, spore-bearing fruiting body of a fungus,
-            typically produced above ground, on soil, or on its food source. 
-            Toadstool generally denotes one poisonous to humans.
-        </p>
-        <p>List of fungus:</p>
-        <ol>
-            <li>Rozellomyceta</li>
-            <li>Aphelidiomyceta</li>
-            <li>Eumycota</li>
-        </ol>
-        <p>List of some Psilocybin mushroom ;&#41</p>
-        <ul>
-            <li>Inocybe</li>
-            <li>Pluteus</li>
-            <li>Gymnopilus</li>
-            <li>Pholiotina</li>
-        </ul>
-        <div class="triangle-calculator">
+    <main id="block-3" ondblclick="createUnorderedList('block-3')">
+        <div class="content">
+            <p>Triangle calculator</p>
             <label for="base">Enter Base: </label>
             <input type="number" id="base" placeholder="Base">
             <label for="height">Enter Height: </label>
             <input type="number" id="height" placeholder="Height">
             <button onclick="onClickDisplayResults()">Result</button>
             <div class="text" id="triangle-result"></div>
-        </div>
-        <div class="number-count">
+            <p>Count minimal numbers</p>
             <label for="number-input">Enter 10 numbers (comma-separated):</label>
             <input type="text" id="number-input">
             <button onclick="countMinNumbers()">Count</button>
         </div>
-    </main>
-    <aside class="aside-right" id="top" onclick="onClickSwapContent()">
+        <div class="content">
+            <button onclick="changeBackgroundColor()">Change Background Color</button>
+            <button onclick="saveListToLocalStorage()">Save List to LocalStorage</button>
+        </div>
+        </main>
+    <aside class="aside-right" id="block-4" onclick="onClickSwapContent()" ondblclick="createUnorderedList('block-4')">
         <p>Only now a 15% DISCOUNT for all Psychodelic mushroom on our site!</p>
     </aside>
-    <aside class="aside-right" id="bottom" onclick="onClickSwapContent()">
+    <aside class="aside-right" id="block-5" onclick="onClickSwapContent()" ondblclick="createUnorderedList('block-5')">
         <img src="assets/bg_8.jpg" alt="mushrooms">
     </aside>
-    <footer>
+    <footer id="block-6" ondblclick="createUnorderedList('block-6')">
         <p>All rights are reserved. Do not even try to still something.</p>
     </footer>
     <script src="script.js"></script>

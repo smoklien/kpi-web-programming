@@ -37,6 +37,7 @@ aside{
 main {
     grid-area: main;
     padding: 2%;
+    text-align: left;
 }
 
 footer {
@@ -88,11 +89,11 @@ input {
     text-align: center;
 }
 
-#top {
+#block-4 {
     grid-area: top;
 }
 
-#bottom {
+#block-5 {
     grid-area: bottom;
 }
 
@@ -130,7 +131,7 @@ nav a {
     text-decoration: none;
 }
 
-.triangle-calculator, .number-count {
+.content {
     text-align: center;
 }
 
@@ -144,7 +145,7 @@ nav a {
         grid-template-rows: 18% 37.75% 37.75% 7%;
     }
 
-    #bottom img {
+    #block-5 img {
         max-width: 100%;
     }
 
