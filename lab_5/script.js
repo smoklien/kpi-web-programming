@@ -50,7 +50,7 @@ const countMinNumbers = () => {
     const input = document.getElementById('number-input').value;
     const numbers = input.split(',').map(Number);
 
-    if (numbers.length === 10) {
+    if (numbers.length === 10 && numbers.every(Number.isFinite)) {
         const minNumber = Math.min(...numbers);
         const countMin = numbers.filter(num => num === minNumber).length;
 
@@ -59,28 +59,46 @@ const countMinNumbers = () => {
         alert(resultMessage);
 
         // Save result to cookies
-        document.cookie = `minNumbers=${countMin}; expires=Fri, 31 Dec 6666 23:59:59 GMT;`;
+        const expiryDate = new Date('Fri, 31 Dec 2024 23:59:59 GMT');
+        document.cookie = `minNumbers=${countMin}; expires=${expiryDate.toUTCString()}; path=/; SameSite=None; Secure`;
 
-        // Ask user if they want to delete cookies
-        const deleteCookies = confirm("Do you want to delete the cookies?");
-        if (deleteCookies) {
-            // Delete cookies and reload the page
-            document.cookie = "minNumbers=; expires=Thu, 01 Jan 1990 00:00:00 GMT;";
-            alert("Cookies have been deleted.");
-            location.reload();
-        }
+        console.log("Cookie set:", document.cookie);
     } 
     else {
         alert("Please enter 10 numbers separated by commas.");
     }
 }
 
-// // Display information from cookies on page load
-// window.addEventListener('load', () => {
-//     const minNumbersCookie = document.cookie.split(';').find(cookie => cookie.includes('minNumbers'));
-//     if (minNumbersCookie) {
-//         const minNumbersValue = minNumbersCookie.split('=')[1];
-//         alert(`Information from cookies: ${minNumbersValue}`);
-//         document.cookie = "minNumbers=; expires=Thu, 01 Jan 1970 00:00:00 GMT;";
-//     }
-// });
+// Clear all inputs
+function clearFormInputs() {
+    const formInputs = document.querySelectorAll('input, textarea');
+    formInputs.forEach(input => {
+        if (input.type !== 'button' && input.type !== 'submit' && input.type !== 'reset') {
+            input.value = '';
+        }
+    });
+}
+
+// Display information from cookies on page load
+window.addEventListener('load', () => {
+    console.log("Page loaded, event listener executed.");
+
+    const cookies = document.cookie;
+
+    if (cookies.includes('minNumbers')){
+        const minNumbers = parseInt(cookies.split('; ').find(row => row.startsWith('minNumbers')).split('=')[1]);
+        const confirmDelete = confirm(`Information from cookies: ${minNumbers}\n\nPress OK to delete the cookie data.`);
+        
+        if (confirmDelete) {
+            const expiryDate = new Date('Fri, 31 Dec 2023 23:59:59 GMT');
+            document.cookie = `minNumbers=; expires=${expiryDate.toUTCString()}; path=/; SameSite=None; Secure`;
+
+            clearFormInputs();
+
+            alert("Cookies have been deleted.");
+
+            location.reload();
+        }
+    }
+});
+
