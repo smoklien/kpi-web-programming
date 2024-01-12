@@ -9,6 +9,7 @@ The repository is organized into different lab folders:
 - [lab_2](lab_2/)
 - [lab_3](lab_3/)
 - [lab_4](lab_4/)
+- [lab_5](lab_5/)
 
 ## Getting started
 
