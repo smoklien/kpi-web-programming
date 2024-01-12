@@ -2,8 +2,8 @@
 
 // Function to swap the content of top and botton blocks
 const onClickSwapContent = () => {
-    const topElement = document.getElementById('top');
-    const bottomElement = document.getElementById('bottom');
+    const topElement = document.getElementById('block-4');
+    const bottomElement = document.getElementById('block-5');
 
      // Log a message or the values before swapping
      console.log('Before Swap:', topElement.innerHTML, bottomElement.innerHTML);
@@ -14,10 +14,10 @@ const onClickSwapContent = () => {
      // Log a message or the values after swapping
      console.log('After Swap:', topElement.innerHTML, bottomElement.innerHTML);
  }
+ 
+// Task #2
 
- // Task #2
-
- // Function to calculate the area of a triangle
+// Function to calculate the area of a triangle
 const calculateTriangleArea = (base, height) => {
     return 0.5 * base * height;
 }
@@ -81,7 +81,7 @@ function clearFormInputs() {
 
 // Display information from cookies on page load
 window.addEventListener('load', () => {
-    console.log("Page loaded, event listener executed.");
+    console.log("Page loaded, event listener #1 executed.");
 
     const cookies = document.cookie;
 
@@ -102,3 +102,84 @@ window.addEventListener('load', () => {
     }
 });
 
+// Task #4
+
+// Function to change background color on load event
+window.addEventListener('load', () => {
+    console.log("Page loaded, event listener #2 executed.");
+
+    const mainBlock = document.querySelector('main');
+    //const inputColor = document.querySelector('#input-color');
+    const savedColor = localStorage.getItem('textColor');
+    
+    mainBlock.style.backgroundColor = savedColor || 'rgb(255, 247, 219)';
+    //inputColor.value = savedColor
+});
+
+// Function to change background color and save it to localStorage
+const changeBackgroundColor = () => {
+    const mainBlock = document.querySelector('main');
+    const newColor = prompt('Enter a new text color:');
+    
+    // Check if the user entered a valid color
+    if (newColor !== null && newColor.trim() !== '') {
+        mainBlock.style.backgroundColor = newColor;
+        
+        // Save the new color to localStorage
+        localStorage.setItem('textColor', newColor);
+    }
+}
+
+// Task #5
+
+ // Function to create an unordered list
+ const createUnorderedList = (blockId) => {
+    const block = document.getElementById(blockId);
+    const listItemsString = prompt(`Enter unordered list items (comma-separated) for ${blockId}:`);
+    
+    // Check if the user entered items
+    if (listItemsString !== null && listItemsString.trim() !== '') {
+        // Split the items and create an unordered list
+        const listItems = listItemsString.split(',').map(item => item.trim());
+        const ul = document.createElement('ul');
+        
+        // Add list items to the unordered list
+        listItems.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            ul.appendChild(li);
+        });
+
+        block.appendChild(ul);
+    }
+}
+
+// Function to save the list to localStorage
+const saveListToLocalStorage = () => {
+    const listContents = {};
+
+    // Iterate through each block and save its list items
+    ['block-1', 'block-2', 'block-3', 'block-4', 'block-5', 'block-6'].forEach(blockId => {
+        const block = document.getElementById(blockId);
+        const ul = block.querySelector('ul');
+
+        // If the block has an unordered list, save its items
+        if (ul) {
+            const listItems = Array.from(ul.getElementsByTagName('li')).map(li => li.textContent);
+            listContents[blockId] = listItems;
+
+            //Replace the content of the block with the unordered list
+            block.innerHTML = '';
+            block.appendChild(ul);
+        }
+    });
+
+    // Save the list contents to localStorage
+    localStorage.setItem('unorderedListContents', JSON.stringify(listContents));
+    alert('List contents saved to LocalStorage.');
+}
+
+// Delete unordered list of contents when refreshing page
+window.addEventListener('load', () => {
+    localStorage.removeItem('unorderedListContents');
+})
