@@ -17,7 +17,7 @@
         <a href="page_1.html" class="logo">All The Mushrooms</a>
     </div>
 
-    <div id="block-2" class="aside">
+    <div class="aside" id="block-2">
         <nav>
             <a href="page_1.html">Main</a>
             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Secret menu</a>
@@ -25,26 +25,11 @@
     </div>
 
     <div id="block-3">
-        <p>
-            A mushroom or toadstool is the fleshy, spore-bearing fruiting body of a fungus,
-            typically produced above ground, on soil, or on its food source. 
-            Toadstool generally denotes one poisonous to humans.
-        </p>
-
-        <p>List of fungus:</p>
-        <ol>
-            <li>Rozellomyceta</li>
-            <li>Aphelidiomyceta</li>
-            <li>Eumycota</li>
-        </ol>
-
-        <p>List of some Psilocybin mushroom ;&#41</p>
-        <ul>
-            <li>Inocybe</li>
-            <li>Pluteus</li>
-            <li>Gymnopilus</li>
-            <li>Pholiotina</li>
-        </ul>
+        <form id="collapsibleForm">
+            <label for="numCollapsibles">Number of Collapsibles:</label>
+            <input type="number" id="numCollapsibles" name="numCollapsibles" required>
+            <button type="button" onclick="createCollapsibles()">Create Collapsibles</button>
+        </form>
     </div>
 
     <div class="aside" id="block-4">
