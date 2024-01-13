@@ -122,6 +122,8 @@ function clearDataFile() {
     const xhr = new XMLHttpRequest();
     const url = 'clear_data.php';
 
+    console.log('clearDataFile function called');
+
     xhr.open('GET', url, true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {

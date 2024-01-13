@@ -1,9 +1,9 @@
 <?php
 $jsonFile = 'content.json';
-$fileHandle = fopen($dataFilePath, 'w');
+$fileHandle = fopen($jsonFile, 'w');
 
-if ($jsonFile) {
-    fclose($jsonFile);
+if ($fileHandle) {
+    fclose($fileHandle);
     echo json_encode(['success' => true]);
 } 
 else {
