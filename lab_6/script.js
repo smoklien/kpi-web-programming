@@ -108,13 +108,37 @@ function saveDataOnServer(data) {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             console.log('Data saved successfully:', xhr.responseText);
-        } else if (xhr.readyState === 4) {
+        } 
+        else if (xhr.readyState === 4) {
             console.error('Failed to save data. Status:', xhr.status);
         }
     };
 
     const jsonData = JSON.stringify(data);
     xhr.send(jsonData);
+}
+
+function clearDataFile() {
+    const xhr = new XMLHttpRequest();
+    const url = 'clear_data.php';
+
+    xhr.open('GET', url, true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const response = JSON.parse(xhr.responseText);
+            if (response.success) {
+                console.log('Data file cleared successfully.');
+            } 
+            else {
+                console.error('Failed to clear data file.');
+            }
+        } 
+        else if (xhr.readyState === 4) {
+            console.error('Failed to clear data file. Status:', xhr.status);
+        }
+    };
+
+    xhr.send();
 }
 
 // const interval = setInterval(async () => {

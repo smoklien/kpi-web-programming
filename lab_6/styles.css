@@ -147,6 +147,11 @@ nav a {
     padding: 10px;
 }
 
+#delete-button {
+    align-self: center;
+    size-adjust: 150%;
+}
+
 @media (max-width: 426px) {
     html, body {
         overflow: hidden;
