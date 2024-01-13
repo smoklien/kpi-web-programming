@@ -36,6 +36,13 @@ function createContent(event, collapsibleIndex) {
 
         content.appendChild(newParagraph);
         target.value = '';
+
+        const contentData = {
+            collapsibleIndex: collapsibleIndex,
+            textContent: newParagraph.innerHTML
+        };
+
+        saveDataOnServer(contentData);
     }
 }
 
@@ -84,7 +91,7 @@ function createCollapsiblesHandler() {
             orderArray: orderArray
         };
 
-        sendDataToServer(data);
+        saveDataOnServer(data);
     } else {
         numCollapsiblesInput.value = '';
         orderInput.value = '';
@@ -97,7 +104,7 @@ function saveDataOnServer(data) {
 
     // Set up the request
     xhr.open('POST', url, true);
-    xhr.setRequestHeader('Content-Type', 'application/json'/* 'application/x-www-form-urlencoded' */);
+    xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             console.log('Data saved successfully:', xhr.responseText);
@@ -107,7 +114,6 @@ function saveDataOnServer(data) {
     };
 
     const jsonData = JSON.stringify(data);
-
     xhr.send(jsonData);
 }
 
