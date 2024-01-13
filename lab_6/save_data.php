@@ -15,10 +15,13 @@
         elseif (isset($data['collapsibleIndex']) && isset($data['textContent'])) {
             $collapsibleIndex = $data['collapsibleIndex'];
             $textContent = $data['textContent'];
+            $existingContent = file_get_contents('content.json');
+            $existingData = $existingContent ? json_decode($existingContent, true) : [];
+            $existingData[] = ['collapsibleIndex' => $collapsibleIndex, 'textContent' => $textContent];
 
             // Save data to content.json file
-            $jsonData = json_encode(['collapsibleIndex' => $collapsibleIndex, 'textContent' => $textContent]). "\n";
-            file_put_contents('content.json', $jsonData, FILE_APPEND | LOCK_EX);
+            $jsonData = json_encode($existingData, JSON_PRETTY_PRINT);
+            file_put_contents('content.json', $jsonData);
 
             echo json_encode(['success' => true]);
         } 

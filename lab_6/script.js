@@ -170,9 +170,8 @@ function handleFetchedData(data) {
         const contentId = `content-${collapsibleIndex}`;
         const content = document.getElementById(contentId);
 
-        if (content) {
-            const textContent = data.content.textContent || '';
-            // const textContent = data.content[collapsibleIndex].textContent || '';
+        if (content && data.content[collapsibleIndex - 1]) {
+            const textContent = data.content[collapsibleIndex - 1].textContent || '';
             const newParagraph = document.createElement('p');
             newParagraph.innerHTML = textContent;
             content.appendChild(newParagraph);
