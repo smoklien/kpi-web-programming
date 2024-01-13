@@ -142,55 +142,52 @@ function clearData() {
 }
 
 
-// function fetchData() {
-//     const xhr = new XMLHttpRequest();
-//     const url = 'fetch_data.php';
+function fetchData() {
+    const xhr = new XMLHttpRequest();
+    const url = 'fetch_data.php';
 
-//     xhr.open('GET', url, true);
-//     xhr.setRequestHeader('Content-Type', 'application/json');
-//     xhr.onreadystatechange = function () {
-//         if (xhr.readyState === 4 && xhr.status === 200) {
-//             const responseData = JSON.parse(xhr.responseText);
-//             handleFetchedData(responseData);
-//         } 
-//         else if (xhr.readyState === 4) {
-//             console.error('Failed to fetch data. Status:', xhr.status);
-//         }
-//     };
-
-//     xhr.send();
-// }
-
-async function fetchData() {
-    try {
-        const response = await fetch('fetch_data.php');
-        if (!response.ok) {
-            throw new Error(`Failed to fetch data. Status: ${response.status}`);
+    xhr.open('GET', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const responseData = JSON.parse(xhr.responseText);
+            createCollapsibles(responseData.collapsibles.orderArray);
+            handleFetchedData(responseData);
+        } 
+        else if (xhr.readyState === 4) {
+            console.error('Failed to fetch data. Status:', xhr.status);
         }
+    };
 
-        const responseData = await response.json();
-        handleFetchedData(responseData);
-    } catch (error) {
-        console.error('Error fetching data:', error.message);
-    }
+    xhr.send();
 }
 
 function handleFetchedData(data) {
-    const orderArray = data.collapsibles.orderArray;
+    if (data && data.collapsibles && data.content) {
+        data.collapsibles.orderArray.forEach((collapsibleIndex) => {
+            const contentIdBase = `content-${collapsibleIndex}`;
+            const content = document.getElementById(contentIdBase);
 
-    createCollapsibles(orderArray);
-    
-    orderArray.forEach((collapsibleIndex) => {
-        const contentId = `content-${collapsibleIndex}`;
-        const content = document.getElementById(contentId);
+            if (content) {
+                // Clear existing content
+                content.innerHTML = '';
 
-        if (content && data.content[collapsibleIndex - 1]) {
-            const textContent = data.content[collapsibleIndex - 1].textContent || '';
-            const newParagraph = document.createElement('p');
-            newParagraph.innerHTML = textContent;
-            content.appendChild(newParagraph);
-        }
-    });
+                // Filter content data for the current collapsibleIndex
+                const relevantContent = data.content.filter(entry => entry.collapsibleIndex === collapsibleIndex);
+
+                // Append paragraphs for each entry
+                relevantContent.forEach(entry => {
+                    const newParagraph = document.createElement('p');
+                    newParagraph.innerHTML = entry.textContent || '';
+                    content.appendChild(newParagraph);
+                });
+            }
+        });
+    }
 }
 
-//fetchData();
+// Fetch data initially
+fetchData();
+
+// Periodically update data every 15 seconds
+setInterval(fetchData, 15000);
