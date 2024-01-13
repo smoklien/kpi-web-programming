@@ -171,7 +171,8 @@ function handleFetchedData(data) {
         const content = document.getElementById(contentId);
 
         if (content) {
-            const textContent = data.content[collapsibleIndex].textContent;
+            const textContent = data.content.textContent || '';
+            // const textContent = data.content[collapsibleIndex].textContent || '';
             const newParagraph = document.createElement('p');
             newParagraph.innerHTML = textContent;
             content.appendChild(newParagraph);
