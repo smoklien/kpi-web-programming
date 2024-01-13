@@ -17,18 +17,14 @@ function isValidInput(numCollapsibles, order) {
     return true;
 }
 
-function createCollapsibleContent(i) {
-    return `<input type="text" class="content-input" placeholder="Content for Collapsible ${i}">`;
-}
-
-function createCollapsibleButton(i) {
+function createButton(i) {
     const collapsible = document.createElement('button');
     collapsible.className = 'collapsible';
     collapsible.textContent = `Collapsible ${i}`;
     return collapsible;
 }
 
-function handleContentInputKeyPress(event, collapsibleIndex) {
+function createContent(event, collapsibleIndex) {
     const target = event.target;
 
     if (event.key === 'Enter') {
@@ -48,14 +44,14 @@ function createCollapsibles(orderArray) {
     block3.innerHTML = '';
 
     for (const i of orderArray) {
-        const collapsible = createCollapsibleButton(i);
+        const collapsible = createButton(i);
         const content = document.createElement('p');
         content.className = 'content';
         content.id = `content-${i}`;
-        content.innerHTML = createCollapsibleContent(i);
+        content.innerHTML = `<input type="text" class="content-input" placeholder="Content for Collapsible ${i}">`;
 
         const input = content.querySelector('.content-input');
-        input.addEventListener('keyup', (event) => handleContentInputKeyPress(event, i));
+        input.addEventListener('keyup', (event) => createContent(event, i));
 
         block3.appendChild(collapsible);
         block3.appendChild(content);
@@ -80,42 +76,39 @@ function createCollapsiblesHandler() {
 
     if (isValidInput(numCollapsibles, order)) {
         const orderArray = order.split(',').map(item => parseInt(item.trim()));
-
-        // const data = {
-        //     numCollapsibles: numCollapsibles,
-        //     order: orderArray
-        // };
-
+        
         createCollapsibles(orderArray);
 
-        // saveDataOnServer(data);
+        const data = {
+            numCollapsibles: numCollapsibles,
+            orderArray: orderArray
+        };
+
+        sendDataToServer(data);
     } else {
-        numCollapsiblesInput.value = ''; // Clear the input field
-        orderInput.value = ''; // Clear the order field
+        numCollapsiblesInput.value = '';
+        orderInput.value = '';
     }
 }
 
 function saveDataOnServer(data) {
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'save_data.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+    const url = 'save_data.php';
 
+    // Set up the request
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/json'/* 'application/x-www-form-urlencoded' */);
     xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-                const response = JSON.parse(xhr.responseText);
-                if (response.status === 'success') {
-                    alert('Data saved successfully!');
-                } else {
-                    alert('Error saving data: ' + response.message);
-                }
-            } else {
-                alert('Error saving data. Please try again later.');
-            }
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log('Data saved successfully:', xhr.responseText);
+        } else if (xhr.readyState === 4) {
+            console.error('Failed to save data. Status:', xhr.status);
         }
     };
 
-    xhr.send(JSON.stringify(data));
+    const jsonData = JSON.stringify(data);
+
+    xhr.send(jsonData);
 }
 
 // const interval = setInterval(async () => {
