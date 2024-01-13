@@ -42,7 +42,7 @@ function createContent(event, collapsibleIndex) {
             textContent: newParagraph.innerHTML
         };
 
-        saveDataOnServer(contentData);
+        saveData(contentData);
     }
 }
 
@@ -91,14 +91,14 @@ function createCollapsiblesHandler() {
             orderArray: orderArray
         };
 
-        saveDataOnServer(data);
+        saveData(data);
     } else {
         numCollapsiblesInput.value = '';
         orderInput.value = '';
     }
 }
 
-function saveDataOnServer(data) {
+function saveData(data) {
     const xhr = new XMLHttpRequest();
     const url = 'save_data.php';
 
@@ -118,11 +118,9 @@ function saveDataOnServer(data) {
     xhr.send(jsonData);
 }
 
-function clearDataFile() {
+function clearData() {
     const xhr = new XMLHttpRequest();
     const url = 'clear_data.php';
-
-    console.log('clearDataFile function called');
 
     xhr.open('GET', url, true);
     xhr.onreadystatechange = function () {
@@ -143,6 +141,45 @@ function clearDataFile() {
     xhr.send();
 }
 
+
+function fetchData() {
+    const xhr = new XMLHttpRequest();
+    const url = 'fetch_data.php';
+
+    xhr.open('GET', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const responseData = JSON.parse(xhr.responseText);
+            handleFetchedData(responseData);
+        } 
+        else if (xhr.readyState === 4) {
+            console.error('Failed to fetch data. Status:', xhr.status);
+        }
+    };
+
+    xhr.send();
+}
+
+function handleFetchedData(data) {
+    const orderArray = data.collapsibles.orderArray;
+
+    createCollapsibles(orderArray);
+    
+    orderArray.forEach((collapsibleIndex) => {
+        const contentId = `content-${collapsibleIndex}`;
+        const content = document.getElementById(contentId);
+
+        if (content) {
+            const textContent = data.content[collapsibleIndex].textContent;
+            const newParagraph = document.createElement('p');
+            newParagraph.innerHTML = textContent;
+            content.appendChild(newParagraph);
+        }
+    });
+}
+
+fetchData();
 // const interval = setInterval(async () => {
 //     // Get the data from the server
 //     const data = await getCollapsiblesData();
