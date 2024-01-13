@@ -142,23 +142,37 @@ function clearData() {
 }
 
 
-function fetchData() {
-    const xhr = new XMLHttpRequest();
-    const url = 'fetch_data.php';
+// function fetchData() {
+//     const xhr = new XMLHttpRequest();
+//     const url = 'fetch_data.php';
 
-    xhr.open('GET', url, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            const responseData = JSON.parse(xhr.responseText);
-            handleFetchedData(responseData);
-        } 
-        else if (xhr.readyState === 4) {
-            console.error('Failed to fetch data. Status:', xhr.status);
+//     xhr.open('GET', url, true);
+//     xhr.setRequestHeader('Content-Type', 'application/json');
+//     xhr.onreadystatechange = function () {
+//         if (xhr.readyState === 4 && xhr.status === 200) {
+//             const responseData = JSON.parse(xhr.responseText);
+//             handleFetchedData(responseData);
+//         } 
+//         else if (xhr.readyState === 4) {
+//             console.error('Failed to fetch data. Status:', xhr.status);
+//         }
+//     };
+
+//     xhr.send();
+// }
+
+async function fetchData() {
+    try {
+        const response = await fetch('fetch_data.php');
+        if (!response.ok) {
+            throw new Error(`Failed to fetch data. Status: ${response.status}`);
         }
-    };
 
-    xhr.send();
+        const responseData = await response.json();
+        handleFetchedData(responseData);
+    } catch (error) {
+        console.error('Error fetching data:', error.message);
+    }
 }
 
 function handleFetchedData(data) {
@@ -179,11 +193,4 @@ function handleFetchedData(data) {
     });
 }
 
-fetchData();
-// const interval = setInterval(async () => {
-//     // Get the data from the server
-//     const data = await getCollapsiblesData();
-    
-//     // Update the collapsibles
-//     createCollapsibles(data.order);
-// }, 3000);    
+//fetchData();
