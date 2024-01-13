@@ -17,7 +17,7 @@
             $textContent = $data['textContent'];
 
             // Save data to content.json file
-            $jsonData = json_encode(['collapsibleIndex' => $collapsibleIndex, 'textContent' => $textContent]). '\n';
+            $jsonData = json_encode(['collapsibleIndex' => $collapsibleIndex, 'textContent' => $textContent]). "\n";
             file_put_contents('content.json', $jsonData, FILE_APPEND | LOCK_EX);
 
             echo json_encode(['success' => true]);
