@@ -45,6 +45,11 @@ input, button {
     border-width: 0.6px;
 }
 
+/* input {
+    max-width: 100%;
+    min-width: 10%
+} */
+
 img {
     max-width: 70%;
     justify-self: center;
@@ -89,25 +94,20 @@ nav a {
 .collapsible {
     cursor: pointer;
     padding: 18px;
-    /* text-align: left; */
     outline: none;
     background-color: rgb(255, 239, 191);
     font-size: 15px;
 }
 
 .content {
-    /* padding: 0 18px; */
+    padding-left: 18px;
     display: none;
     overflow: hidden;
-    /* font-family: 'Inclusive Sans', 'Times New Roman', Times, serif; */
 }
 
-.collapsible input {
-    margin-right: 10px;
+.content p{
+    margin: 8px 0 8px 0;
 }
-/* .content {
-    text-align: center;
-} */
 
 #block-1 {
     grid-area: header;
