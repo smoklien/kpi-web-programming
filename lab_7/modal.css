@@ -39,6 +39,11 @@
     height: 20%;
 }
 
+.control-buttons button {
+    width: 30%;
+    font-size: 200%;
+}
+
 .modal-body {
     position: relative;
     border: 5px solid rgb(156, 124, 224);
@@ -81,6 +86,10 @@
     color: rgb(95, 92, 82);
     text-decoration: none;
     cursor: pointer;
+}
+
+#reload {
+    display: none;
 }
 
 /* Add Animation */

@@ -40,7 +40,7 @@ let startStopButton = document.getElementById('start-stop-button');
 let reloadButton = document.getElementById('reload');
 let animationId;
 let isStop = false;
-let recordNumber = 0;
+let recordNumber = 1;
 let collisionDetected = false;
 
 startStopButton.addEventListener('click', () => {
@@ -202,10 +202,13 @@ function fetchData() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             deleteAllRows();
             const jsonData = JSON.parse(xhr.responseText);
-            if (jsonData) {
-                jsonData.forEach(function (section) {
-                    addRowToTable(section);
+            console.log(jsonData);
+            if (jsonData.records.length > 0) {
+                jsonData.records.forEach(function (section) {
+                  addRowToTable(section);
                 });
+              } else {
+                console.log("No records found in the JSON data");
             }
         }
     };

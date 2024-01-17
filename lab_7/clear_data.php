@@ -1,12 +1,12 @@
 <?php
-    $jsonFile = 'records.json';
-    $fileHandle = fopen($jsonFile, 'w');
+$jsonFile = 'records.json';
+$fileHandle = fopen($jsonFile, 'w');
 
-    if ($$fileHandle) {
-        fclose($fileHandle);
-        echo json_encode(['success' => true]);
-    } 
-    else {
-        echo json_encode(['error' => 'Failed to clear data file']);
-    }
+if ($fileHandle) {
+    fclose($fileHandle);
+    echo json_encode(['success' => true]);
+} 
+else {
+    echo json_encode(['error' => 'Failed to clear data file']);
+}
 ?>
