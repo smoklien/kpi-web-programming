@@ -93,24 +93,6 @@ nav a {
     text-decoration: none;
 }
 
-/* .collapsible {
-    cursor: pointer;
-    padding: 18px;
-    outline: none;
-    background-color: rgb(255, 239, 191);
-    font-size: 15px;
-} */
-
-/* .content {
-    padding-left: 18px;
-    display: none;
-    overflow: hidden;
-}
-
-.content p{
-    margin: 8px 0 8px 0;
-} */
-
 #block-1 {
     grid-area: header;
     display: grid;
@@ -126,6 +108,7 @@ nav a {
 }
 
 #block-3 {
+    overflow: auto;
     grid-area: main;
     padding: 2%;
     text-align: center;

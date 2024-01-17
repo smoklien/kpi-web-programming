@@ -23,6 +23,7 @@ function displayModalWindow() {
 
 closeButton.onclick = function () {
     fetchData();
+    stop();
     modalWindow.style.display = "none";
 }
 
