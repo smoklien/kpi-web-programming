@@ -8,9 +8,9 @@ function getRandomSpeed(max) {
     return Math.floor(Math.random() * max) + 1;
 }
 
-function getRandomCoordinate(canvas) {
-    let x = Math.floor(Math.random() * canvas.clientWidth);
-    let y = Math.floor(Math.random() * canvas.clientHeight);
+function getRandomCoordinate(canvas, radius = 10) {
+    let x = Math.floor(Math.random() * (canvas.clientWidth - 2 * radius));
+    let y = Math.floor(Math.random() * (canvas.clientHeight - 2 * radius));
     return {
         x,
         y
@@ -41,6 +41,7 @@ let reloadButton = document.getElementById('reload');
 let animationId;
 let isStop = false;
 let recordNumber = 0;
+let collisionDetected = false;
 
 startStopButton.addEventListener('click', () => {
     if (startStopButton.classList.contains('active')) {
@@ -57,16 +58,17 @@ startStopButton.addEventListener('click', () => {
 
 function start() {
     isStop = false;
+    collisionDetected = false;
     reloadButton.disabled = true;
+    reloadButton.style.display = 'none';
     startStopButton.disabled = false;
     balls.forEach(ball => {
-        ball.style.display = "block";
+        ball.style.display = 'block';
     });
 
     makeRecord("Started");
-    animateRedBall();
-    animateGreenBall();
-    reloadButton.disabled = true;
+    animateBalls();
+
 }
 
 function stop() {
@@ -74,93 +76,100 @@ function stop() {
 }
 
 function reload() {
-    ball.style.display = 'block';
+    // ball.style.display = 'block';
     reloadButton.disabled = true;
+    reloadButton.style.display = 'none';
     startStopButton.disabled = false;
+    startStopButton.style = 'inline';
     isStop = true;
     makeRecord("Reloaded");
     setTimeout(() => start(), 100);
 }
 
+function ballsCollide(ball1, ball2) {
+    const dx = ball1.offsetLeft + ball1.offsetWidth / 2 - (ball2.offsetLeft + ball2.offsetWidth / 2);
+    const dy = ball1.offsetTop + ball1.offsetHeight / 2 - (ball2.offsetTop + ball2.offsetHeight / 2);
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    const combinedRadii = ball1.offsetWidth / 2 + ball2.offsetWidth / 2;
+  
+    return distance < combinedRadii;
+  }
+  
 function move(x, y, radius, speedX, speedY, ball) {
     const tempFn = () => move(x, y, radius, speedX, speedY, ball);
-    if (isStop) {
+    let ballColor = (ball === redBall) ? 'red' : 'green';
+    
+    if (isStop || collisionDetected) {
         cancelAnimationFrame(tempFn);
         return;
     }
 
-    makeRecord(`Moved ${x}, ${y}`);
+    // makeRecord(`Moved ${x}, ${y}`);
 
     x += speedX;
     y += speedY;
 
-    // if (redBall.x === greenBall.x && redBall.y === greenBall.y) {
-    //     reloadButton.disabled = false;
-    //     startStopButton.disabled = true;
-    //     makeRecord("Balls collapsed");
-
-    //     return;
-    //     // stop();
-    // }
-
-    // if (x + radius > canvas.clientWidth) {
-    //     reloadButton.disabled = false;
-    //     startStopButton.disabled = true;
-
-    //     ball.style.left = x + 'px';
-    //     ball.style.top = y + 'px';
-
-    //     ball.style.display = 'none';
-
-    //     makeRecord("Balls collapsed");
-
-    //     return;
-    // }
 
     if (x < 0) {
         speedX = -speedX;
-        makeRecord("Hit left wall");
+        makeRecord(`${ballColor} ball hit left wall`);
     }
-    else if (x + radius > canvas.clientWidth) {
+    else if (x + 2 * radius > canvas.clientWidth) {
         speedX = -speedX;
-        makeRecord("Hit right wall");
+        makeRecord(`${ballColor} ball hit right wall`);
     }
 
     if (y < 0) {
         speedY = -speedY;
-        makeRecord("Hit lower wall");
+        makeRecord(`${ballColor} ball hit upper wall`);
     }
-    else if (y + radius > canvas.clientHeight) {
+    else if (y + 2 * radius > canvas.clientHeight) {
         speedY = -speedY;
-        makeRecord("Hit upper wall");
+        makeRecord(`${ballColor} ball hit lower wall`);
     }
 
     ball.style.left = x + 'px';
     ball.style.top = y + 'px';
 
+    if (ballsCollide(redBall, greenBall) && !collisionDetected){
+        collisionDetected = true;
+        reloadButton.disabled = false;
+        reloadButton.style.display = 'inline';
+        startStopButton.disabled = true;
+        startStopButton.style.display = 'none';
+        makeRecord("Balls collided");
+
+        return;
+        // stop();
+    }
+
+
     animationId = requestAnimationFrame(tempFn);
 }
 
-function animateRedBall() {
+function animateBalls() {
+    reloadButton.disabled = true;
+    reloadButton.style.display = 'none';
+    startStopButton.disabled = false;
+
+    animateRedBall();
+    animateGreenBall();
+}
+
+function animateRedBall(radius = 10) {
     let x = 0;
     let y = getRandomCoordinate(canvas).y;
-    let radius = 10;
     let speedX = getRandomSpeed(5);
     let speedY = getRandomSpeed(5);
-    reloadButton.disabled = true;
-    startStopButton.disabled = false;
 
     move(x, y, radius, speedX, speedY, redBall);
 }
 
-function animateGreenBall() {
+function animateGreenBall(radius = 10) {
     let x = getRandomCoordinate(canvas).x;
     let y = 0;
-    let radius = 10;
     let speedX = getRandomSpeed(5);
     let speedY = getRandomSpeed(5);
-    reloadButton.disabled = true;
-    startStopButton.disabled = false;
 
     move(x, y, radius, speedX, speedY, greenBall);
 }
@@ -200,7 +209,7 @@ function fetchData() {
             }
         }
     };
-    xhr.open('GET', 'get_data.php', true);
+    xhr.open('GET', 'fetch_data.php', true);
     xhr.send();
 }
 
