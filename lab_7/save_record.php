@@ -46,9 +46,9 @@
 
             if ($id && $timestamp && $content) {
                 // Process received data
-                $timestamp = microtime(true);
-                $datetime = new DateTime("@$timestamp");
-                $formatted_time = $datetime->format('H:i:s.') . sprintf("%03d", round(($timestamp - floor($timestamp)) * 1000));
+                $unix_timestamp = microtime(true);
+                $datetime = new DateTime("@$unix_timestamp");
+                $formatted_time = $datetime->format('H:i:s.') . sprintf("%03d", round(($unix_timestamp - floor($unix_timestamp)) * 1000));
 
                 $newSection = [
                     'id' => $id,
@@ -58,7 +58,7 @@
                 ];
 
                 $jsonFile = 'records.json';
-                
+
                 $existingData = [];
                 if (file_exists($jsonFile)) {
                     $jsonData = file_get_contents($jsonFile);

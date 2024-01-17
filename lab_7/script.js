@@ -1,12 +1,20 @@
-// const modal = document.getElementById("work");
 const modalWindow = document.getElementById("work");
-
-const closeButton = document.getElementsById("close-button")[0];
+const closeButton = document.getElementById("close-button");
 const infoText = document.getElementById("info");
 const recordsTable = document.getElementById("records");
+const balls = document.querySelectorAll('.ball');
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
+function getRandomSpeed(max) {
+    return Math.floor(Math.random() * max) + 1;
+}
+
+function getRandomCoordinate(canvas) {
+    let x = Math.floor(Math.random() * canvas.clientWidth);
+    let y = Math.floor(Math.random() * canvas.clientHeight);
+    return {
+        x,
+        y
+    };
 }
 
 function displayModalWindow() {
@@ -25,92 +33,14 @@ window.onclick = function (event) {
     }
 }
 
-// let canvas = document.querySelector('.modal-body');
 let canvas = document.getElementById('anim');
-
-let redBall = document.getElementById('red-ball');
-let greenBall = document.getElementById('green-ball');
-
-// let anim = document.getElementById('anim');
+let redBall = document.getElementById('red');
+let greenBall = document.getElementById('green');
 let startStopButton = document.getElementById('start-stop-button');
 let reloadButton = document.getElementById('reload');
 let animationId;
 let isStop = false;
 let recordNumber = 0;
-
-const getCurrentTimestamp = () => {
-    const currentDate = new Date();
-
-    const hours = String(currentDate.getHours()).padStart(2, '0');
-    const minutes = String(currentDate.getMinutes()).padStart(2, '0');
-    const seconds = String(currentDate.getSeconds()).padStart(2, '0');
-    const milliseconds = String(currentDate.getMilliseconds()).padStart(3, '0');
-
-    return `${hours}:${minutes}:${seconds}.${milliseconds}`;
-}
-
-function saveData(data, url = 'save_record.php') {
-    const xhr = new XMLHttpRequest();
-
-    // Set up the request with defaults
-    xhr.open('POST', url, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-              console.log('Data saved successfully:', xhr.responseText);
-            } else {
-              console.error('Failed to save data. Status:', xhr.status);
-            }
-        }
-    };
-
-    xhr.send(JSON.stringify(data));
-}
-
-const makeRecord = (text) => {
-    timestamp = getCurrentTimestamp();
-    infoText.innerText = timestamp + ' ' + text;
-
-    const existingRecords = JSON.parse(localStorage.getItem('records')) || [];
-    const record = {
-        id: recordNumber,
-        content: text,
-        timestamp: timestamp
-    };
-
-    existingRecords.push(record);
-    const updatedRecordsString = JSON.stringify(existingRecords);
-    localStorage.setItem('records', updatedRecordsString);
-
-    saveData(record);
-
-    recordNumber += 1;
-};
-
-
-// const makeRecord = (text) => {
-//     timestamp = getCurrentTimestamp();
-//     infoText.innerText = timestamp + ' ' + text;
-
-//     const existingRecords = JSON.parse(localStorage.getItem('records')) || [];
-//     const record = {
-//         id: recordNumber,
-//         content: text,
-//         timestamp: timestamp
-//     };
-
-//     existingRecords.push(record);
-//     const updatedRecordsString = JSON.stringify(existingRecords);
-//     localStorage.setItem('records', updatedRecordsString);
-
-//     const xhr = new XMLHttpRequest();
-//     xhr.open('POST', 'save_record.php', true);
-//     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-//     xhr.send('id=' + recordNumber + '&content=' + text + '&timestamp=' + timestamp);
-
-//     recordNumber =+ 1;
-// };
 
 startStopButton.addEventListener('click', () => {
     if (startStopButton.classList.contains('active')) {
@@ -129,8 +59,13 @@ function start() {
     isStop = false;
     reloadButton.disabled = true;
     startStopButton.disabled = false;
+    balls.forEach(ball => {
+        ball.style.display = "block";
+    });
+
     makeRecord("Started");
-    animateBall();
+    animateRedBall();
+    animateGreenBall();
     reloadButton.disabled = true;
 }
 
@@ -147,8 +82,8 @@ function reload() {
     setTimeout(() => start(), 100);
 }
 
-function move(x, y, radius, speedX, speedY) {
-    const tempFn = () => move(x, y, radius, speedX, speedY);
+function move(x, y, radius, speedX, speedY, ball) {
+    const tempFn = () => move(x, y, radius, speedX, speedY, ball);
     if (isStop) {
         cancelAnimationFrame(tempFn);
         return;
@@ -159,28 +94,45 @@ function move(x, y, radius, speedX, speedY) {
     x += speedX;
     y += speedY;
 
-    if (x + radius > canvas.clientWidth) {
-        reloadButton.disabled = false;
-        startStopButton.disabled = true;
+    // if (redBall.x === greenBall.x && redBall.y === greenBall.y) {
+    //     reloadButton.disabled = false;
+    //     startStopButton.disabled = true;
+    //     makeRecord("Balls collapsed");
 
-        ball.style.left = x + 'px';
-        ball.style.top = y + 'px';
+    //     return;
+    //     // stop();
+    // }
 
-        ball.style.display = 'none';
+    // if (x + radius > canvas.clientWidth) {
+    //     reloadButton.disabled = false;
+    //     startStopButton.disabled = true;
 
-        makeRecord("Out of canvas");
+    //     ball.style.left = x + 'px';
+    //     ball.style.top = y + 'px';
 
-        return;
-    }
+    //     ball.style.display = 'none';
+
+    //     makeRecord("Balls collapsed");
+
+    //     return;
+    // }
 
     if (x < 0) {
         speedX = -speedX;
         makeRecord("Hit left wall");
     }
+    else if (x + radius > canvas.clientWidth) {
+        speedX = -speedX;
+        makeRecord("Hit right wall");
+    }
 
-    if (y < 0 || y + radius > canvas.clientHeight) {
+    if (y < 0) {
         speedY = -speedY;
-        makeRecord("Hit upper or lower wall");
+        makeRecord("Hit lower wall");
+    }
+    else if (y + radius > canvas.clientHeight) {
+        speedY = -speedY;
+        makeRecord("Hit upper wall");
     }
 
     ball.style.left = x + 'px';
@@ -189,16 +141,28 @@ function move(x, y, radius, speedX, speedY) {
     animationId = requestAnimationFrame(tempFn);
 }
 
-function animateBall() {
+function animateRedBall() {
     let x = 0;
-    let y = 0;
+    let y = getRandomCoordinate(canvas).y;
     let radius = 10;
-    let speedX = getRandomInt(5);
-    let speedY = getRandomInt(5);
+    let speedX = getRandomSpeed(5);
+    let speedY = getRandomSpeed(5);
     reloadButton.disabled = true;
     startStopButton.disabled = false;
 
-    move(x, y, radius, speedX, speedY);
+    move(x, y, radius, speedX, speedY, redBall);
+}
+
+function animateGreenBall() {
+    let x = getRandomCoordinate(canvas).x;
+    let y = 0;
+    let radius = 10;
+    let speedX = getRandomSpeed(5);
+    let speedY = getRandomSpeed(5);
+    reloadButton.disabled = true;
+    startStopButton.disabled = false;
+
+    move(x, y, radius, speedX, speedY, greenBall);
 }
 
 function addRowToTable(data) {
@@ -265,5 +229,55 @@ function clearData() {
 
     xhr.send();
 }
+
+const getCurrentTimestamp = () => {
+    const currentDate = new Date();
+
+    const hours = String(currentDate.getHours()).padStart(2, '0');
+    const minutes = String(currentDate.getMinutes()).padStart(2, '0');
+    const seconds = String(currentDate.getSeconds()).padStart(2, '0');
+    const milliseconds = String(currentDate.getMilliseconds()).padStart(3, '0');
+
+    return `${hours}:${minutes}:${seconds}.${milliseconds}`;
+}
+
+function saveData(data, url = 'save_record.php') {
+    const xhr = new XMLHttpRequest();
+
+    // Set up the request with defaults
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              console.log('Data saved successfully:', xhr.responseText);
+            } else {
+              console.error('Failed to save data. Status:', xhr.status);
+            }
+        }
+    };
+
+    xhr.send(JSON.stringify(data));
+}
+
+const makeRecord = (text) => {
+    timestamp = getCurrentTimestamp();
+    infoText.innerText = timestamp + ' ' + text;
+
+    const existingRecords = JSON.parse(localStorage.getItem('records')) || [];
+    const record = {
+        id: recordNumber,
+        content: text,
+        timestamp: timestamp
+    };
+
+    existingRecords.push(record);
+    const updatedRecordsString = JSON.stringify(existingRecords);
+    localStorage.setItem('records', updatedRecordsString);
+
+    saveData(record);
+
+    recordNumber += 1;
+};
 
 fetchData();
