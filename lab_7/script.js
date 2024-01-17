@@ -77,7 +77,6 @@ function stop() {
 }
 
 function reload() {
-    // ball.style.display = 'block';
     reloadButton.disabled = true;
     reloadButton.style.display = 'none';
     startStopButton.disabled = false;
