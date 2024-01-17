@@ -35,17 +35,16 @@
         <div id="work" class="modal">
             <div class="modal-content"> 
                 <div class="modal-header" id="controls">
-                    <span class="close">&times;</span>
+                    <span id="close-button">&times;</span>
                     <div class="contol-buttons">
-                        <button id="startStopButton">Start</button>
-                        <button id="reloadButton" onclick="reload()" disabled>Reload</button>
+                        <button id="start-stop-button">Start</button>
+                        <button id="reload" onclick="reload()" disabled>Reload</button>
                     </div>
-                    <h3 id="info-text">TEXT</h3>
+                    <p id="info">TEXT</p>
                 </div>
                 <div class="modal-body" id="anim">
-                    <!-- <div id="anim"> -->
-                        <div id="ball"></div>
-                    <!-- </div> -->
+                    <div id="red-ball"></div>
+                    <div id="green-ball"></div>
                 </div>
             </div>
         </div>
@@ -69,7 +68,7 @@
 
     <div id="block-4" class="aside">
         <p>Only now a 15% DISCOUNT for all Psychodelic mushroom on our site!</p>
-        <button type="button" onclick="clearData()">Clear Data</button>   
+        <!-- <button type="button" onclick="clearData()">Clear Data</button>    -->
     </div>
 
     <div id="block-5" class="aside">

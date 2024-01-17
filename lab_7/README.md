@@ -1,7 +1,7 @@
 # Lab 7
 
-Complete code of the site
+Complete frontend and backend code of the site 
 
-## See The work of the site on Google Drive
+## See video of working site on Google Drive
 
 [video of working site]()

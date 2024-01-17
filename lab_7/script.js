@@ -1,121 +1,243 @@
-function isValidInput(numCollapsibles, order) {
-    if (isNaN(numCollapsibles) || numCollapsibles <= 0) {
-        alert('Please enter a valid positive number for the number of collapsibles.');
-        return false;
-    }
+// const modal = document.getElementById("work");
+const modalWindow = document.getElementById("work");
 
-    if (!order.match(/^\d+(,\s*\d+)*$/)) {
-        alert('Please enter a valid comma-separated list of numbers for the order.');
-        return false;
-    }
+const closeButton = document.getElementsById("close-button")[0];
+const infoText = document.getElementById("info");
+const recordsTable = document.getElementById("records");
 
-    if (order.split(',').length !== numCollapsibles) {
-        alert('Order does not match the number of collapsibles.');
-        return false;
-    }
-
-    return true;
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
 }
 
-function createButton(i) {
-    const collapsible = document.createElement('button');
-    collapsible.className = 'collapsible';
-    collapsible.textContent = `Collapsible ${i}`;
-    return collapsible;
+function displayModalWindow() {
+    modalWindow.style.display = "block";
 }
 
-function createContent(event, collapsibleIndex) {
-    const target = event.target;
+closeButton.onclick = function () {
+    fetchData();
+    modalWindow.style.display = "none";
+}
 
-    if (event.key === 'Enter') {
-        const contentId = `content-${collapsibleIndex}`;
-        const content = document.getElementById(contentId);
-
-        const newParagraph = document.createElement('p');
-        newParagraph.innerHTML = target.value;
-
-        content.appendChild(newParagraph);
-        target.value = '';
-
-        const contentData = {
-            collapsibleIndex: collapsibleIndex,
-            textContent: newParagraph.innerHTML
-        };
-
-        saveData(contentData);
+window.onclick = function (event) {
+    if (event.target == modalWindow) {
+        fetchData();
+        modalWindow.style.display = "none";
     }
 }
 
-function createCollapsibles(orderArray) {
-    const block3 = document.getElementById('block-3');
-    block3.innerHTML = '';
+// let canvas = document.querySelector('.modal-body');
+let canvas = document.getElementById('anim');
 
-    for (const i of orderArray) {
-        const collapsible = createButton(i);
-        const content = document.createElement('p');
-        content.className = 'content';
-        content.id = `content-${i}`;
-        content.innerHTML = `<input type="text" class="content-input" placeholder="Content for Collapsible ${i}">`;
+let redBall = document.getElementById('red-ball');
+let greenBall = document.getElementById('green-ball');
 
-        const input = content.querySelector('.content-input');
-        input.addEventListener('keyup', (event) => createContent(event, i));
+// let anim = document.getElementById('anim');
+let startStopButton = document.getElementById('start-stop-button');
+let reloadButton = document.getElementById('reload');
+let animationId;
+let isStop = false;
+let recordNumber = 0;
 
-        block3.appendChild(collapsible);
-        block3.appendChild(content);
-    }
+const getCurrentTimestamp = () => {
+    const currentDate = new Date();
 
-    // Event delegation for collapsible buttons
-    block3.addEventListener('click', function (event) {
-        if (event.target.classList.contains('collapsible')) {
-            event.target.classList.toggle('active');
-            const content = event.target.nextElementSibling;
-            content.style.display = (content.style.display === 'block') ? 'none' : 'block';
-        }
-    });
+    const hours = String(currentDate.getHours()).padStart(2, '0');
+    const minutes = String(currentDate.getMinutes()).padStart(2, '0');
+    const seconds = String(currentDate.getSeconds()).padStart(2, '0');
+    const milliseconds = String(currentDate.getMilliseconds()).padStart(3, '0');
+
+    return `${hours}:${minutes}:${seconds}.${milliseconds}`;
 }
 
-function createCollapsiblesHandler() {
-    const numCollapsiblesInput = document.getElementById('numCollapsibles');
-    const orderInput = document.getElementById('collapsibleOrder');
-
-    const numCollapsibles = parseInt(numCollapsiblesInput.value);
-    const order = orderInput.value;
-
-    if (isValidInput(numCollapsibles, order)) {
-        const orderArray = order.split(',').map(item => parseInt(item.trim()));
-        
-        createCollapsibles(orderArray);
-
-        const data = {
-            numCollapsibles: numCollapsibles,
-            orderArray: orderArray
-        };
-
-        saveData(data);
-    } else {
-        numCollapsiblesInput.value = '';
-        orderInput.value = '';
-    }
-}
-
-function saveData(data) {
+function saveData(data, url = 'save_record.php') {
     const xhr = new XMLHttpRequest();
-    const url = 'save_data.php';
 
-    // Set up the request
+    // Set up the request with defaults
     xhr.open('POST', url, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            console.log('Data saved successfully:', xhr.responseText);
-        } 
-        else if (xhr.readyState === 4) {
-            console.error('Failed to save data. Status:', xhr.status);
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              console.log('Data saved successfully:', xhr.responseText);
+            } else {
+              console.error('Failed to save data. Status:', xhr.status);
+            }
         }
     };
 
-    const jsonData = JSON.stringify(data);
-    xhr.send(jsonData);
+    xhr.send(JSON.stringify(data));
+}
+
+const makeRecord = (text) => {
+    timestamp = getCurrentTimestamp();
+    infoText.innerText = timestamp + ' ' + text;
+
+    const existingRecords = JSON.parse(localStorage.getItem('records')) || [];
+    const record = {
+        id: recordNumber,
+        content: text,
+        timestamp: timestamp
+    };
+
+    existingRecords.push(record);
+    const updatedRecordsString = JSON.stringify(existingRecords);
+    localStorage.setItem('records', updatedRecordsString);
+
+    saveData(record);
+
+    recordNumber += 1;
+};
+
+
+// const makeRecord = (text) => {
+//     timestamp = getCurrentTimestamp();
+//     infoText.innerText = timestamp + ' ' + text;
+
+//     const existingRecords = JSON.parse(localStorage.getItem('records')) || [];
+//     const record = {
+//         id: recordNumber,
+//         content: text,
+//         timestamp: timestamp
+//     };
+
+//     existingRecords.push(record);
+//     const updatedRecordsString = JSON.stringify(existingRecords);
+//     localStorage.setItem('records', updatedRecordsString);
+
+//     const xhr = new XMLHttpRequest();
+//     xhr.open('POST', 'save_record.php', true);
+//     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+//     xhr.send('id=' + recordNumber + '&content=' + text + '&timestamp=' + timestamp);
+
+//     recordNumber =+ 1;
+// };
+
+startStopButton.addEventListener('click', () => {
+    if (startStopButton.classList.contains('active')) {
+        startStopButton.classList.toggle('active');
+        stop();
+        startStopButton.innerText = 'Start';
+        makeRecord("Stopped");
+        return;
+    }
+    startStopButton.classList.toggle('active');
+    start();
+    startStopButton.innerText = 'Stop'
+});
+
+function start() {
+    isStop = false;
+    reloadButton.disabled = true;
+    startStopButton.disabled = false;
+    makeRecord("Started");
+    animateBall();
+    reloadButton.disabled = true;
+}
+
+function stop() {
+    isStop = true;
+}
+
+function reload() {
+    ball.style.display = 'block';
+    reloadButton.disabled = true;
+    startStopButton.disabled = false;
+    isStop = true;
+    makeRecord("Reloaded");
+    setTimeout(() => start(), 100);
+}
+
+function move(x, y, radius, speedX, speedY) {
+    const tempFn = () => move(x, y, radius, speedX, speedY);
+    if (isStop) {
+        cancelAnimationFrame(tempFn);
+        return;
+    }
+
+    makeRecord(`Moved ${x}, ${y}`);
+
+    x += speedX;
+    y += speedY;
+
+    if (x + radius > canvas.clientWidth) {
+        reloadButton.disabled = false;
+        startStopButton.disabled = true;
+
+        ball.style.left = x + 'px';
+        ball.style.top = y + 'px';
+
+        ball.style.display = 'none';
+
+        makeRecord("Out of canvas");
+
+        return;
+    }
+
+    if (x < 0) {
+        speedX = -speedX;
+        makeRecord("Hit left wall");
+    }
+
+    if (y < 0 || y + radius > canvas.clientHeight) {
+        speedY = -speedY;
+        makeRecord("Hit upper or lower wall");
+    }
+
+    ball.style.left = x + 'px';
+    ball.style.top = y + 'px';
+
+    animationId = requestAnimationFrame(tempFn);
+}
+
+function animateBall() {
+    let x = 0;
+    let y = 0;
+    let radius = 10;
+    let speedX = getRandomInt(5);
+    let speedY = getRandomInt(5);
+    reloadButton.disabled = true;
+    startStopButton.disabled = false;
+
+    move(x, y, radius, speedX, speedY);
+}
+
+function addRowToTable(data) {
+    const tbody = recordsTable.getElementsByTagName("tbody")[0];
+    const newRow = tbody.insertRow();
+    const cell1 = newRow.insertCell(0);
+    const cell2 = newRow.insertCell(1);
+    const cell3 = newRow.insertCell(2);
+    const cell4 = newRow.insertCell(3);
+
+    cell1.innerHTML = data.id;
+    cell2.innerHTML = data.timestamp;
+    cell3.innerHTML = data.server_timestamp;
+    cell4.innerHTML = data.content;
+}
+
+function deleteAllRows() {
+    const tbody = recordsTable.getElementsByTagName("tbody")[0];
+
+    while (tbody.hasChildNodes()) {
+        tbody.removeChild(tbody.firstChild);
+    }
+}
+
+function fetchData() {
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            deleteAllRows();
+            const jsonData = JSON.parse(xhr.responseText);
+            if (jsonData) {
+                jsonData.forEach(function (section) {
+                    addRowToTable(section);
+                });
+            }
+        }
+    };
+    xhr.open('GET', 'get_data.php', true);
+    xhr.send();
 }
 
 function clearData() {
@@ -128,8 +250,11 @@ function clearData() {
             const response = JSON.parse(xhr.responseText);
             if (response.success) {
                 console.log('Data file cleared successfully.');
+                localStorage.clear();
+                deleteAllRows();
             } 
             else {
+                alert(response.message);
                 console.error('Failed to clear data file.');
             }
         } 
@@ -141,53 +266,4 @@ function clearData() {
     xhr.send();
 }
 
-
-function fetchData() {
-    const xhr = new XMLHttpRequest();
-    const url = 'fetch_data.php';
-
-    xhr.open('GET', url, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            const responseData = JSON.parse(xhr.responseText);
-            createCollapsibles(responseData.collapsibles.orderArray);
-            handleFetchedData(responseData);
-        } 
-        else if (xhr.readyState === 4) {
-            console.error('Failed to fetch data. Status:', xhr.status);
-        }
-    };
-
-    xhr.send();
-}
-
-function handleFetchedData(data) {
-    if (data && data.collapsibles && data.content) {
-        data.collapsibles.orderArray.forEach((collapsibleIndex) => {
-            const contentIdBase = `content-${collapsibleIndex}`;
-            const content = document.getElementById(contentIdBase);
-
-            if (content) {
-                // Clear existing content
-                content.innerHTML = '';
-
-                // Filter content data for the current collapsibleIndex
-                const relevantContent = data.content.filter(entry => entry.collapsibleIndex === collapsibleIndex);
-
-                // Append paragraphs for each entry
-                relevantContent.forEach(entry => {
-                    const newParagraph = document.createElement('p');
-                    newParagraph.innerHTML = entry.textContent || '';
-                    content.appendChild(newParagraph);
-                });
-            }
-        });
-    }
-}
-
-// Fetch data initially
 fetchData();
-
-// Periodically update data every 15 seconds
-setInterval(fetchData, 15000);
