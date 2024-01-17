@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ultra&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rum Raisin&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inclusive Sans&display=swap">
+    
+    <title>Little Trippy World</title>
+</head>
+
+<body>
+    <div id="block-1">
+        <a href="index.html" class="logo">All The Mushrooms</a>
+    </div>
+
+    <div id="block-2" class="aside">
+        <nav>
+            <a href="index.html">Main</a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Dark Web</a>
+        </nav>
+    </div>
+
+    <div id="block-3">
+        <div id="modal-window-controlers">
+            <button onclick="displayModalWindow()">Play</button>
+            <button onclick="clearData()">Clear data</button>
+        </div>
+
+        <div id="work" class="modal">
+            <div class="modal-content"> 
+                <div class="modal-header" id="controls">
+                    <span id="close-button">&times;</span>
+                    <div class="control-buttons">
+                        <button id="start-stop-button">Start</button>
+                        <button id="reload" onclick="reload()" disabled>Reload</button>
+                    </div>
+                    <p id="info">Here you'll see information about balls</p>
+                </div>
+                <div class="modal-body" id="anim">
+                    <div id="red" class="ball"></div>
+                    <div id="green" class="ball"></div>
+                </div>
+            </div>
+        </div>
+
+        <table id="records">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>LocalStorage Timestamp</th>
+                    <th>Server Timestamp</th>
+                    <th>Content</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+        </div>
+    </div>
+
+    <div id="block-4" class="aside">
+        <p>Only now a 15% DISCOUNT for all Psychodelic mushroom on our site!</p>
+    </div>
+
+    <div id="block-5" class="aside">
+        <img src="assets/bg_8.jpg" alt="mushrooms">
+    </div>
+
+    <div id="block-6">
+        <p>All rights are reserved. Do not even try to still something.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
