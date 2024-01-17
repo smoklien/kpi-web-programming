@@ -90,7 +90,7 @@ function reload() {
 function ballsCollide(ball1, ball2) {
     const dx = ball1.offsetLeft + ball1.offsetWidth / 2 - (ball2.offsetLeft + ball2.offsetWidth / 2);
     const dy = ball1.offsetTop + ball1.offsetHeight / 2 - (ball2.offsetTop + ball2.offsetHeight / 2);
-    const distance = Math.sqrt(dx * dx + dy * dy);
+    const distance = Math.sqrt(dx ** 2 + dy ** 2);
     const combinedRadii = ball1.offsetWidth / 2 + ball2.offsetWidth / 2;
   
     return distance < combinedRadii;
@@ -105,7 +105,7 @@ function move(x, y, radius, speedX, speedY, ball) {
         return;
     }
 
-    // makeRecord(`Moved ${x}, ${y}`);
+    makeRecord(`${ballColor} ball moved ${x}, ${y}`);
 
     x += speedX;
     y += speedY;
@@ -141,7 +141,6 @@ function move(x, y, radius, speedX, speedY, ball) {
         makeRecord("Balls collided");
 
         return;
-        // stop();
     }
 
 
@@ -257,7 +256,6 @@ const getCurrentTimestamp = () => {
 function saveData(data, url = 'save_record.php') {
     const xhr = new XMLHttpRequest();
 
-    // Set up the request with defaults
     xhr.open('POST', url, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onreadystatechange = function () {
@@ -293,4 +291,4 @@ const makeRecord = (text) => {
     recordNumber += 1;
 };
 
-fetchData();
+// fetchData();

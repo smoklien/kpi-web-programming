@@ -26,9 +26,9 @@
     width: 80%;
     height: 80%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -webkit-animation-name: animatetop;
+    -webkit-animation-name: slideIn;
     -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
+    animation-name: slideIn;
     animation-duration: 0.4s
 }
 
@@ -99,16 +99,16 @@
 }
 
 @keyframes slideIn {
-from {bottom: -300px; opacity: 0}
-to {bottom: 0; opacity: 1}
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
 }
 
 @-webkit-keyframes fadeIn {
-from {opacity: 0} 
-to {opacity: 1}
+    from {opacity: 0} 
+    to {opacity: 1}
 }
 
 @keyframes fadeIn {
-from {opacity: 0} 
-to {opacity: 1}
+    from {opacity: 0} 
+    to {opacity: 1}
 }

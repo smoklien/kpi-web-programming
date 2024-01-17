@@ -32,7 +32,7 @@ a {
 }
 
 
-p, label, input, button, li, th{
+p, label, input, button, li, th, td{
     font-family: 'Inclusive Sans', 'Times New Roman', Times, serif;
     color: rgb(99, 90, 60);
 }
