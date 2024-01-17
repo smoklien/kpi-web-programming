@@ -290,5 +290,3 @@ const makeRecord = (text) => {
 
     recordNumber += 1;
 };
-
-// fetchData();
