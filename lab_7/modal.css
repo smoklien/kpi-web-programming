@@ -32,20 +32,6 @@
     animation-duration: 0.4s
 }
 
-/* The Close Button */
-.close {
-    color: white;
-    float: right;
-    font-size: 40px;
-    font-weight: bold;
-}
-
-.close:hover, .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
 .modal-header {
     padding: 25px;
     background-color: rgb(218, 201, 148);
@@ -81,6 +67,20 @@
 
 #green {
     background-color: rgb(202, 255, 137);
+}
+
+/* The Close Button */
+#close-button {
+    color: rgb(255, 247, 219);
+    float: right;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#close-button:hover, #close-button:focus {
+    color: rgb(95, 92, 82);
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* Add Animation */
