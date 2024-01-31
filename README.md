@@ -4,19 +4,15 @@ This repository contains the source code for various lab works related to Web pr
 
 ## Repository Structure
 
-The repository is organized into different lab folders:
-- [lab_1](lab_1/)
-- [lab_2](lab_2/)
-- [lab_3](lab_3/)
-- [lab_4](lab_4/)
-- [lab_5](lab_5/)
-- [lab_6](lab_6/)
-- [lab_7](lab_7/)
+- `lab`: Source code and related files to the labs.
+- `index.html`: Main page with links to all labs.
+- `index-preview.png`: Main page image preview.
+- `.gitignore`: Files or folders to ignore.
 
 ## Getting started
-
-To access all labs in one place, visit the [https://smoklien.github.io/](https://smoklien.github.io/) website.
+  
+To access all labs in one place, visit next website [https://smoklien.github.io/](https://smoklien.github.io/).
 
 ## Site Preview
 
-![Site Preview](./index_preview.png)
+![Site Preview](./index-preview.png)
