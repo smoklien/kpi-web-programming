@@ -5,14 +5,9 @@ This repository contains the source code for various lab works related to Web pr
 ## Repository Structure
 
 - `lab`: Source code and related files to the labs.
-- `index.html`: Main page with links to all labs.
-- `index-preview.png`: Main page image preview.
+- `docs`: Source code and related files to the main GutHub page.
 - `.gitignore`: Files or folders to ignore.
 
 ## Getting started
   
-To access all labs in one place, visit next website [https://smoklien.github.io/](https://smoklien.github.io/).
-
-## Site Preview
-
-![Site Preview](./index-preview.png)
+To access all labs in one place, visit [GitHub Pages](https://smoklien.github.io/kpi-web-programming/).
