@@ -5,7 +5,8 @@ This repository contains the source code for various lab works related to Web pr
 ## Repository Structure
 
 - `lab`: Source code and related files to the labs.
-- `docs`: Source code and related files to the main GutHub page.
+- `index.html`: Index file for GitHub Page's website.
+- `assets`: Assets files to website.
 - `.gitignore`: Files or folders to ignore.
 
 ## Getting started
