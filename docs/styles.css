@@ -60,7 +60,7 @@ body {
 }
 
 .main-text h1 {
-    font-size: 5rem;
+    font-size: 7rem;
     line-height: 1.5em;
 
     margin: 0%;
@@ -73,7 +73,7 @@ body {
 }
 
 .main-text p {
-    font-size: 1rem;
+    font-size: 2rem;
     line-height: 1.5em;
 
     margin: 0%;
@@ -92,23 +92,22 @@ body {
     justify-content: center;
     
     margin: 0%;
-    padding: 50px;
+    padding: 80px;
 }
 
 .button {
-    padding: 10px 20px;
-    font-size: 1em;
-    background-color: #b9b9b9;
+    padding: 0.9em 1.6em;
+    font-size: 1.3rem;
+    background-color: #b9b9b936;
     color: rgb(242, 242, 242);
-    border:#6d6d6d;
-    border-radius: 2rem;
+    /* border-radius: 0.1rem; */
     cursor: pointer;
     transition: background-color 0.3s;
 
-    font-family:Arial, Helvetica, sans-serif;
-
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
 }
 
 .button:hover {
-    background-color: #6d6d6d;
+    background-color: #b7b7b7dd;
 }
